@@ -1,5 +1,8 @@
 # weather-market-lab
 
+[![ci](https://github.com/qkkqk1234/weather-market-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/qkkqk1234/weather-market-lab/actions/workflows/ci.yml)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A reproducible harness for studying **daily-high-temperature prediction
 markets** — the ones that ask "what will the highest temperature in city X be
 today?" and settle against a public weather station.
