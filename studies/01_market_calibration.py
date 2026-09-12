@@ -10,6 +10,7 @@ a thin model would have room. It is not sloppy.
 """
 
 import csv
+import math
 import os
 import sys
 from collections import defaultdict
@@ -46,14 +47,20 @@ def main():
     rows, points = [], []
     for idx in sorted(bins):
         cell = bins[idx]
-        mean_price = cell["price"] / cell["n"]
-        realised = cell["wins"] / cell["n"]
+        n = cell["n"]
+        mean_price = cell["price"] / n
+        realised = cell["wins"] / n
+        # Standard error of the win count under "the quoted price is the truth".
+        # Without it a 4 pp gap on 243 observations reads as a finding.
+        se = math.sqrt(max(mean_price * (1 - mean_price), 1e-12) / n)
+        gap = realised - mean_price
         rows.append({
             "band": f"{EDGES[idx]:.2f}-{EDGES[idx + 1]:.2f}",
-            "n": cell["n"], "mean_price": round(mean_price, 4),
-            "realised": round(realised, 4), "gap_pp": round(100 * (realised - mean_price), 2),
+            "n": n, "mean_price": round(mean_price, 4),
+            "realised": round(realised, 4), "gap_pp": round(100 * gap, 2),
+            "se_pp": round(100 * se, 2), "z": round(gap / se, 2) if se > 0 else 0.0,
         })
-        points.append((mean_price, realised, cell["n"]))
+        points.append((mean_price, realised, n))
 
     os.makedirs(REPORTS, exist_ok=True)
     out = os.path.join(REPORTS, "market_calibration.csv")
@@ -64,10 +71,18 @@ def main():
 
     total = sum(r["n"] for r in rows)
     print(f"{total} quote-observations across {len([d for d, e in events.items() if e.settled])} settled days\n")
-    print(f"{'price band':>12} {'n':>6} {'mean price':>11} {'realised':>9} {'gap (pp)':>9}")
+    print(f"{'price band':>12} {'n':>6} {'mean price':>11} {'realised':>9} "
+          f"{'gap (pp)':>9} {'se (pp)':>8} {'z':>6}")
     for r in rows:
         print(f"{r['band']:>12} {r['n']:>6} {r['mean_price']:>11.3f} "
-              f"{r['realised']:>9.3f} {r['gap_pp']:>9.2f}")
+              f"{r['realised']:>9.3f} {r['gap_pp']:>9.2f} {r['se_pp']:>8.2f} {r['z']:>6.2f}")
+    big = [r for r in rows if abs(r["z"]) >= 2]
+    names = ", ".join(r["band"] for r in big) if big else "none"
+    print(f"\nPast 2 sigma: {len(big)} of {len(rows)} bands ({names}).")
+    print("Read that as noise, not as three findings. The signs alternate across")
+    print("neighbouring bands, whereas a real favourite-longshot effect is monotone")
+    print("in price; and the sub-cent band is dead buckets, which cannot be shorted")
+    print("profitably at 0.002 anyway.")
     print("\nwrote", out)
     print("wrote", calibration_plot(points))
 

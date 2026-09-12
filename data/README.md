@@ -7,7 +7,7 @@ Four files, ~600 KB, all from public unauthenticated endpoints. Captured
 |---|---:|---|
 | `zgsz_metar_hourly.csv.gz` | 111,231 | 2014-01-01 → 2026-09-12 |
 | `shenzhen_events.csv` | 1,947 | 177 market days, 174 settled |
-| `shenzhen_quotes.csv.gz` | 17,793 | 162 days with quotes |
+| `shenzhen_quotes.csv.gz` | 17,483 | 162 days with quotes |
 | `settlement_candidates.csv` | 155 | 2026-03-20 → 2026-08-23 |
 
 ## Provenance
@@ -27,8 +27,13 @@ bucket per day; `resolved=1` marks the bucket that won. Tail buckets use
 `lo=-999` / `hi=999`.
 
 **`shenzhen_quotes.csv.gz`** — Polymarket CLOB `prices-history`, reduced to one
-mid per bucket per local hour 08:00–19:00. A cell is omitted when no quote
-exists within the preceding hour, rather than being carried forward.
+mid per bucket per local hour. The `hour` column is the METAR observation hour,
+but **the quote is sampled at `HH:30`**, because the hourly report valid at
+`HH:00` is not published until 6–21 minutes later (measured on the aviation
+weather API's `receiptTime`, n=72: min 5.4, p50 6.4, max 21.1 minutes). Pairing
+an `HH:00` quote with the `HH:00` reading is a 30-minute look-ahead that
+flatters any model reading it. A cell is omitted when no quote exists in the
+preceding 30 minutes, rather than being carried forward.
 
 These are **mid prices, not executable quotes.** The order book is not in the
 archive, so the backtest charges a flat $0.01 to cross rather than pretending
