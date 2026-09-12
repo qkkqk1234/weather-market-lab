@@ -14,3 +14,6 @@ latelock/data/
 *.jsonl
 HALT
 runner.lock
+
+# LLM response cache is committed on purpose -- it makes study 06 re-scorable
+# without an API key. Nothing else in reports/ is ignored.

@@ -44,6 +44,11 @@ class Obs:
     temp_c: float
     dewpoint_c: float | None
     sky: str | None
+    wind_dir_deg: float | None = None
+    wind_kt: float | None = None
+    gust_kt: float | None = None
+    visibility_mi: float | None = None
+    cloud_base_ft: float | None = None
 
     @property
     def dewpoint_spread(self) -> float | None:
@@ -60,6 +65,28 @@ class Obs:
         if self.sky in BROKEN_SKY:
             return "overcast"
         return "unknown"
+
+    @property
+    def wind_compass(self) -> str | None:
+        """16-point compass label, for prompts and eyeballing."""
+        if self.wind_dir_deg is None:
+            return None
+        points = ("N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
+                  "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW")
+        return points[int((self.wind_dir_deg % 360) / 22.5 + 0.5) % 16]
+
+    @property
+    def onshore(self) -> bool | None:
+        """True when the wind has a sea-breeze component.
+
+        Bao'an sits on the east side of the Pearl River estuary, so the water
+        is roughly south through west. A veer into that arc during the
+        afternoon is the classic sea breeze signature, and it is the single
+        most useful non-temperature field in the report.
+        """
+        if self.wind_dir_deg is None:
+            return None
+        return 135 <= self.wind_dir_deg % 360 <= 292.5
 
 
 @dataclass(frozen=True)
@@ -127,22 +154,33 @@ class Metar:
         return now.temp_c - before.temp_c
 
 
+def _num(row, key):
+    """IEM writes 'M' for missing and 'T' for trace; both become None."""
+    try:
+        return float(row[key])
+    except (TypeError, ValueError, KeyError):
+        return None
+
+
 def load_metar(path: str | None = None) -> Metar:
     path = path or os.path.join(DATA_DIR, "zgsz_metar_hourly.csv.gz")
     obs: dict[tuple[str, int], Obs] = {}
     with _open(path) as fh:
         for row in csv.DictReader(fh):
-            try:
-                temp = float(row["tmpc"])
-            except (TypeError, ValueError):
-                continue  # "M" = missing
-            try:
-                dew = float(row["dwpc"])
-            except (TypeError, ValueError):
-                dew = None
+            temp = _num(row, "tmpc")
+            if temp is None:
+                continue
             local = datetime.strptime(row["valid"], "%Y-%m-%d %H:%M") + LOCAL_OFFSET
-            sky = (row.get("skyc1") or "").strip() or None
-            obs[(local.date().isoformat(), local.hour)] = Obs(temp, dew, sky)
+            obs[(local.date().isoformat(), local.hour)] = Obs(
+                temp_c=temp,
+                dewpoint_c=_num(row, "dwpc"),
+                sky=(row.get("skyc1") or "").strip() or None,
+                wind_dir_deg=_num(row, "drct"),
+                wind_kt=_num(row, "sknt"),
+                gust_kt=_num(row, "gust"),
+                visibility_mi=_num(row, "vsby"),
+                cloud_base_ft=_num(row, "skyl1"),
+            )
     return Metar(obs)
 
 

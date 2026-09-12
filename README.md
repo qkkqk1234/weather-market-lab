@@ -171,6 +171,51 @@ So the full picture: the morning is efficiently priced, the late afternoon is
 efficiently priced once the lock is obvious, and the hours in between are where
 both the mispricing and the difficulty live.
 
+### 7. The evaluation this repo exists for
+
+§5 says the market is wrong for one to three hours about whether the day is
+already over. `studies/06` is the benchmark for anything that would close that.
+
+**Task.** At local hour h, given the day's published METAR trace and nothing
+else: how much higher will the day finish above the running max already
+observed? Four outcomes — `0` (the day is over), `1`, `2`, `3+`.
+
+Three predictors, identical days, identical outcomes, scored on log loss:
+
+| local hour | n | unconditional | empirical table | language model |
+|---:|---:|---:|---:|---:|
+| 13 | 120 | **0.8651** | 0.9052 | not yet run |
+| 14 | 120 | **0.6520** | 0.6933 | not yet run |
+| 15 | 120 | **0.5176** | 0.5800 | not yet run |
+
+**The conditioning features are a net negative at every hour.** The empirical
+table loses to its own unconditional control — same pipeline, same training
+window, features switched off. Rise, dewpoint spread and cloud cover carry
+morning information; by the afternoon they are fitting noise. So the bar is the
+unconditional column, and the empirical approach has already failed to clear
+it. That is precisely what makes this window worth asking a model about.
+
+The model and the table see exactly the same published observations. The table
+compresses them into four binned features; the model gets the raw hourly
+sequence including wind direction, which is where a sea breeze would show up.
+Prompts withhold the year, so a model cannot in principle recall the actual day.
+Replies are cached on disk by prompt hash, so a completed run re-scores for free
+and is checkable by someone else.
+
+```bash
+python -X utf8 studies/06_llm_vs_baseline.py --dry-run     # print one prompt
+python -X utf8 studies/06_llm_vs_baseline.py --estimate    # price it, call nothing
+ANTHROPIC_API_KEY=... python -X utf8 studies/06_llm_vs_baseline.py \
+    --provider anthropic --days 120
+```
+
+**What it costs.** Measured, not guessed: 360 calls at ~512 input and ~60 output
+tokens each — about $0.88 on Sonnet, $0.45 on GPT-5, for one model over 120
+days at three hours. The study that would actually settle the question is 600
+warm-season days × 4 hours × 4 models × 5 samples ≈ 48,000 calls ≈ 25M input
+tokens, plus prompt iteration. That is the arithmetic, and it is the reason this
+repo has an open question rather than an answer.
+
 ## Reproduce
 
 ```bash
@@ -183,16 +228,17 @@ python -X utf8 studies/02_model_vs_market.py
 python -X utf8 studies/03_gated_backtest.py     # ~90s, refits per day
 python -X utf8 studies/04_settlement_source.py
 python -X utf8 studies/05_where_to_look.py
-python -X utf8 -m pytest tests/ -q
+python -X utf8 studies/06_llm_vs_baseline.py    # no key needed for the baselines
+python -X utf8 -m pytest tests/ -q              # 28 tests
 ```
 
-Everything in `reports/` comes from those five scripts.
+Everything in `reports/` comes from those six scripts.
 
 ## Layout
 
 ```
-wxlab/       data loaders, public fetchers, model, gate, backtester, figures
-studies/     five scripts; every number in this README comes from one of them
+wxlab/       data loaders, public fetchers, model, gate, backtester, LLM layer
+studies/     six scripts; every number in this README comes from one of them
 latelock/    the 51-city study, its own README and 37 tests
 docs/        the source-change post-mortem
 data/        bundled snapshot, ~600 KB of plain CSV
@@ -246,7 +292,7 @@ practice.
 
 | file | rows | what |
 |---|---:|---|
-| `zgsz_metar_hourly.csv.gz` | 111,231 | ZGSZ hourly METAR, 2014-01-01 → 2026-09-12, UTC |
+| `zgsz_metar_hourly.csv.gz` | 111,232 | ZGSZ hourly METAR (temp, dewpoint, wind, visibility, cloud), 2014-01-01 → 2026-09-12, UTC |
 | `shenzhen_events.csv` | 1,947 | bucket definitions and resolved winner, 177 market days |
 | `shenzhen_quotes.csv.gz` | 17,483 | mid per bucket at `HH:30` local, 08:30–19:30 |
 | `settlement_candidates.csv` | 155 | four candidate stations vs the settled label |
@@ -264,16 +310,19 @@ GETs and nothing else. Nothing here is investment advice.
 
 **Can a language model tell, at 14:00, that the day is already over?**
 
-That is §5's gap stated as a research problem, and it is a better question than
-"what will the high be" because it is narrower, it has a physical answer, and
-the market is measurably still wrong about it for one to three hours. The
-evidence a person would use — a sea breeze front in the wind record, a cloud
-deck arriving on satellite, the wording of a forecast discussion — is exactly
-the kind a frequency table cannot encode and a language model might.
+§5 shows the market is wrong about that for one to three hours. §7 shows the
+empirical approach cannot answer it — the conditioning features are a net
+negative in exactly that window. The benchmark is built, tested and priced; the
+language model column is empty.
 
-The test: does an LLM shown that context beat the empirical table on log loss,
-on held-out days, without leaking? This repo is the harness for that evaluation.
-The evaluation is what it does not yet have.
+It is a better question than "what will the high be": narrower, with a physical
+answer, and the evidence a person would use — a sea breeze front in the wind
+record, a cloud deck arriving on satellite, the wording of a forecast discussion
+— is exactly the kind a frequency table cannot encode and a language model
+might.
+
+Results, positive or negative, will be committed to `reports/` with the response
+cache, so anyone can re-score them without spending anything.
 
 ## License
 

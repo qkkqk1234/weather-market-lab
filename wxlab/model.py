@@ -57,13 +57,21 @@ class DeltaModel:
     min_support: int = 60
     alpha: float = 0.5  # Laplace smoothing
     months: range = field(default=WARM_MONTHS)
+    use_levels: int = 4  # how many of the four levels to consult, finest first
     _levels: list = field(default_factory=list, repr=False)
     n_train_days: int = 0
 
     # Finest level first; the first level with enough support wins.
+    # ``use_levels=1`` keeps only ``(hour,)``, which is the unconditional
+    # control: same pipeline, same training window, no conditioning features.
     @staticmethod
     def _keys(hour: int, rise: str, spread: str, sky: str):
         return [(hour, rise, spread, sky), (hour, rise, spread), (hour, rise), (hour,)]
+
+    def _active(self):
+        """(level table, key index) pairs actually consulted, coarsest last."""
+        skip = 4 - max(1, min(self.use_levels, 4))
+        return [(i, self._levels[i]) for i in range(skip, 4)]
 
     def fit(self, metar: Metar, *, before: str, hours: range = range(8, 16)) -> "DeltaModel":
         """Train on every warm-season day strictly before ``before``.
@@ -99,8 +107,8 @@ class DeltaModel:
             return None
         keys = self._keys(hour, rise_bin(metar.rise(day, hour)),
                           spread_bin(ob.dewpoint_spread), ob.sky_bin)
-        for level, key in zip(self._levels, keys):
-            counts = level.get(key)
+        for index, level in self._active():
+            counts = level.get(keys[index])
             if counts and sum(counts.values()) >= self.min_support:
                 total = sum(counts.values()) + self.alpha * (MAX_DELTA + 1)
                 return [(counts.get(d, 0) + self.alpha) / total for d in range(MAX_DELTA + 1)]
@@ -121,6 +129,24 @@ class DeltaModel:
             out[max(int(round(ob.temp_c + delta)), int(round(floor)))] += p
         total = sum(out.values())
         return {k: v / total for k, v in out.items()}
+
+    def lock_pmf(self, metar: Metar, day: str, hour: int, cap: int = 3):
+        """P(daily_max - running_max_now = k) for k in 0..cap, top bin inclusive.
+
+        The same four-way question ``wxlab.llm`` puts to a language model, so
+        the two are scored on identical outcomes. ``k = 0`` means the day is
+        already over.
+        """
+        temps = self.temperature_pmf(metar, day, hour)
+        running = metar.running_max(day, hour)
+        if temps is None or running is None:
+            return None
+        floor = int(round(running))
+        out = [0.0] * (cap + 1)
+        for temp, p in temps.items():
+            out[min(max(temp - floor, 0), cap)] += p
+        total = sum(out)
+        return [v / total for v in out] if total > 0 else None
 
     def bucket_pmf(self, metar: Metar, day: str, hour: int, buckets):
         """PMF over market buckets, normalised to sum to 1."""

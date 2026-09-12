@@ -29,3 +29,4 @@ jobs:
           python -X utf8 studies/02_model_vs_market.py
           python -X utf8 studies/04_settlement_source.py
           python -X utf8 studies/05_where_to_look.py
+          python -X utf8 studies/06_llm_vs_baseline.py --days 30
