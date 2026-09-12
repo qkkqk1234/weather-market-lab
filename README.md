@@ -99,16 +99,17 @@ resolution, flat $1 per ticket, at most 2 tickets a day, entries before noon.
 ![cumulative P&L](reports/pnl_curve.png)
 
 *Expected* is the sum of the market's own quoted probabilities for exactly the
-tickets bought. Realised wins land on top of it. The strategy is not losing to
-fees or to bad luck — it is reproducing the market's own distribution and then
-paying to cross the spread.
+tickets bought. Realised wins land on top of it: the gate selects the tickets
+where the model disagrees most with the price, and on those tickets the price
+was right. That is the finding — not that the strategy loses, but that it
+reproduces the market's own distribution and then pays to trade it.
 
-Re-run with zero slippage and it is still −45.1%, so this is a model result,
-not a fee result.
-
-**On reading ROI here:** mean ticket price is $0.07, so one 2-cent winner moves
-ROI by tens of points. With 270 longshot tickets the ROI estimate is mostly
-noise; the win-count z-score is the statistic with power, and it says zero.
+**How to read the ROI, and how not to.** Mean ticket price is $0.07, so a
+single 2-cent winner swings ROI by tens of points. On 270 longshot tickets the
+ROI estimate is mostly noise — here it is negative because the winners happened
+to land on the dearer tickets, not because of costs: re-run at zero slippage
+and it is −45.1%, barely different. The win-count z-score is the statistic with
+power, and it says zero.
 
 ### 4. Second study: 51 cities, the other end of the day
 
