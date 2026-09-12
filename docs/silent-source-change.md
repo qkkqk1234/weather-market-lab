@@ -74,12 +74,10 @@ you measure it instead of asserting it.
 The forecasting chain did not transfer. These did:
 
 - **The risk gate** (`wxlab/gate.py`) — price caps, the noon cutoff, tiered
-  safety multiples, no stop loss. On the switch day it ran three times, at
-  09:30, 10:30 and 11:30, on a model that was by then pointed at the wrong
-  station and calling for 34°C. All three returned no-trade; the 11:30 check
-  missed by 0.2 of a safety multiple. That is not the gate being clever — it is
-  the gate binding on price and size rather than on the model being right,
-  which is the only reason it kept working after the model stopped.
+  safety multiples, no stop loss. Every rule in it binds on price and size, not
+  on the model being right, which is why it goes on working after a model stops
+  working. That is the property to design for: a gate that only holds while the
+  model is correct is not a gate.
 - **Leakage discipline** — walk-forward refitting, running-max monotonicity
   checks, an explicit test that the settlement rule still holds
   (`tests/test_wxlab.py::test_metar_daily_max_explains_every_settlement_after_the_switch`).

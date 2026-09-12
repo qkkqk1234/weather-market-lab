@@ -1,25 +1,25 @@
 """The hard rules a candidate has to clear before it becomes a trade.
 
-These are not tuned parameters. Each one is the scar of a specific loss taken
-while this was running with real money, and they live in one place, in the
-open, so that a backtest cannot quietly relax one of them:
+These are not tuned parameters, and they are kept in one file so a backtest
+cannot quietly relax one of them:
 
-1. Open only before noon local. Afternoon entries measured -61% to -100%: by
-   then the answer is largely locked and the remaining move is already priced.
-2. Limit price <= 0.25. Above that you are buying the favourite, which means
-   paying for the market's own opinion.
-3. Safety multiple by price tier. A 4x model-to-price ratio on a 3-cent ticket
-   is not the same claim as 4x on a 20-cent ticket -- cheap tickets need a
-   wider margin, because the cheap end is exactly where a model's tail is least
-   trustworthy.
-4. One ticket per bucket per day, a cap on tickets per day, a fixed stake. No
-   averaging down and no stop loss: on a book this thin a stop loss fills at
-   zero, which was measured, not assumed.
+1. **Open only before noon local.** Later in the day the outcome is largely
+   determined and the remaining move is already in the price, so a late entry
+   is paying for information it no longer has.
+2. **Limit price <= 0.25.** Above that you are buying the favourite, which
+   means buying the market's own opinion.
+3. **Safety multiple by price tier.** A 4x model-to-price ratio on a 3-cent
+   ticket is not the same claim as 4x on a 20-cent ticket: the cheap end is
+   exactly where a model's tail is least trustworthy, so it needs a wider
+   margin.
+4. **Flat stake, capped tickets per day, no averaging down, no stop loss.**
+   Sizing is a separate question from whether a signal exists. And on a book
+   this thin there is often no bid to sell into, so a stop loss is an exit that
+   does not exist -- the honest assumption is that a loser goes to zero.
 
-Rule 4 interacts with the venue in a way worth writing down: with a fixed $1
-ticket and a 5-share minimum order, the highest price actually reachable is
-$1/5 = 0.20, so the 0.20-0.25 slice of rule 2 is unreachable in live trading
-even though the backtest can express it.
+Rule 4 interacts with the venue: with a $1 ticket and a 5-share minimum order,
+the highest reachable price is $1/5 = $0.20, so the 0.20-0.25 slice of rule 2
+is unreachable in practice even though the backtest can express it.
 """
 
 from __future__ import annotations

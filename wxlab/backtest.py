@@ -9,9 +9,9 @@ Design rules, in order of how much damage they prevent:
   ``mid + SLIPPAGE``. The venue tick is 0.001, so a full cent is roughly ten
   ticks of adverse fill -- brutal on a 3-cent ticket, which is the honest way
   to treat a book that thin.
-* **Hold to resolution.** No exits. The gate forbids stop losses because they
-  were measured filling at zero, so the backtest may not assume an exit the
-  live system is not allowed to take.
+* **Hold to resolution.** No exits. On a book this thin there is often no bid
+  to sell a loser into, so the backtest is not allowed to assume an exit that
+  may not exist.
 * **Flat stake.** Every ticket risks the same cash. Position sizing is a
   separate question from whether the signal exists, and mixing the two is how
   a flat edge starts looking like a compounding one.
