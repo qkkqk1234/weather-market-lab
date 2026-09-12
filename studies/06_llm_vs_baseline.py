@@ -65,12 +65,16 @@ def log_loss(pmf, outcome):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--provider", choices=("anthropic", "openai"))
+    ap.add_argument("--provider", choices=("anthropic", "openai", "claude-code", "codex"),
+                    help="anthropic/openai bill an API key; claude-code/codex drive "
+                         "the local agent CLI headless, against a subscription")
     ap.add_argument("--model")
     ap.add_argument("--days", type=int, default=120)
     ap.add_argument("--estimate", action="store_true", help="price the run, call nothing")
     ap.add_argument("--dry-run", action="store_true", help="print one prompt and stop")
     ap.add_argument("--no-cache", action="store_true")
+    ap.add_argument("--workers", type=int, default=1,
+                    help="parallel calls; the CLI providers take seconds each")
     args = ap.parse_args()
 
     metar = load_metar()
@@ -118,23 +122,38 @@ def main():
     # ---- the language model ---------------------------------------------
     llm, usage = {}, Usage()
     if args.provider:
-        from wxlab.llm import Anthropic, OpenAI
-        cls = Anthropic if args.provider == "anthropic" else OpenAI
+        from concurrent.futures import ThreadPoolExecutor
+
+        from wxlab.llm import PROVIDERS
+        cls = PROVIDERS[args.provider]
         provider = cls(args.model) if args.model else cls()
-        print(f"\nquerying {provider.name}/{provider.model} ...")
-        for i, day in enumerate(days, 1):
-            for hour in HOURS:
-                if (day, hour) not in outcomes:
-                    continue
-                pred = predict(provider, metar, day, hour, use_cache=not args.no_cache)
-                if pred is None:
-                    continue
-                llm[(day, hour)] = pred.pmf
-                usage.add(pred)
-            if i % 20 == 0:
-                print(f"  {i}/{len(days)} days, {usage.cached} cached")
-        print(f"  done: {usage.calls} predictions, {usage.cached} from cache, "
-              f"{usage.input_tokens:,} in / {usage.output_tokens:,} out tokens")
+        todo = sorted(outcomes)
+        print(f"\nquerying {provider.name}/{provider.model}, {len(todo)} points, "
+              f"{args.workers} worker(s) ...")
+
+        def one(key):
+            day, hour = key
+            try:
+                return key, predict(provider, metar, day, hour,
+                                    use_cache=not args.no_cache)
+            except Exception as exc:  # noqa: BLE001 - one bad day must not end a run
+                print(f"  {day} {hour}:00 failed: {exc}")
+                return key, None
+
+        done = 0
+        with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
+            for key, pred in pool.map(one, todo):
+                done += 1
+                if pred is not None:
+                    llm[key] = pred.pmf
+                    usage.add(pred)
+                if done % 15 == 0:
+                    print(f"  {done}/{len(todo)}, {usage.cached} cached, "
+                          f"{done - len(llm)} unusable")
+        tokens = (f", {usage.input_tokens:,} in / {usage.output_tokens:,} out tokens"
+                  if usage.input_tokens else " (provider reports no token counts)")
+        print(f"  done: {len(llm)} usable of {len(todo)}, "
+              f"{usage.cached} from cache{tokens}")
 
     # ---- score ------------------------------------------------------------
     rows = []

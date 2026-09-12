@@ -1,14 +1,14 @@
 {
-  "provider": null,
-  "model": null,
-  "days": 120,
+  "provider": "claude-code",
+  "model": "claude-sonnet-5",
+  "days": 10,
   "hours": [
     13,
     14,
     15
   ],
-  "calls": 0,
-  "cached": 0,
-  "input_tokens": 0,
-  "output_tokens": 0
+  "calls": 30,
+  "cached": 3,
+  "input_tokens": 1156420,
+  "output_tokens": 67043
 }

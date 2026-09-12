@@ -207,30 +207,150 @@ class OpenAI(Provider):
         return text, usage.get("prompt_tokens", 0), usage.get("completion_tokens", 0)
 
 
+class CliProvider(Provider):
+    """Drive a coding-agent CLI in headless mode instead of a billed API key.
+
+    Claude Code (``claude -p``) and Codex (``codex exec``) each answer one
+    prompt and exit, against whatever subscription the machine is signed in to.
+    Useful for a pilot when no API key exists. Two things make it a trap if you
+    reach for it carelessly:
+
+    **These CLIs are agents, not completions.** Left at their defaults they run
+    in the directory you launch them from, with file-editing and shell tools
+    live. Pointed at this repository they will happily rewrite it instead of
+    answering the question -- which is not a hypothetical; it is why every
+    subclass here pins tools off, MCP off, its own system prompt, and a
+    throwaway working directory.
+
+    **The scaffolding dwarfs the prompt.** Measured on this task, one call
+    carries 26k-42k tokens of agent preamble around a ~500 token question, even
+    with tools disabled. At list prices that is $0.05-0.17 per call against
+    $0.0024 through the API: roughly 80x the tokens for the same answer. Fine
+    for tens of calls, wrong for thousands.
+    """
+
+    argv: tuple = ()
+    timeout = 300
+
+    @staticmethod
+    def _sandbox_dir() -> str:
+        """A scratch cwd, so an agent that ignores its instructions has nothing
+        interesting to reach."""
+        import tempfile
+        path = os.path.join(tempfile.gettempdir(), "wxlab-cli-sandbox")
+        os.makedirs(path, exist_ok=True)
+        return path
+
+    def _run(self, argv, prompt: str) -> str:
+        """Run the CLI with the prompt on **stdin**, never as an argument.
+
+        On Windows these CLIs are ``.CMD`` shims, so an argument is handed to
+        cmd.exe, which silently drops embedded newlines. The prompt here is a
+        multi-line observation table; passed as an argument it arrives
+        truncated and the model answers that no data was supplied. stdin has no
+        such problem and is portable.
+        """
+        import shutil
+        import subprocess
+
+        exe = shutil.which(argv[0])
+        if exe is None:
+            raise RuntimeError(f"{argv[0]} is not on PATH")
+        proc = subprocess.run([exe, *argv[1:]], input=prompt,
+                              capture_output=True, text=True, encoding="utf-8",
+                              errors="replace", timeout=self.timeout,
+                              cwd=self._sandbox_dir())
+        if proc.returncode != 0:
+            raise RuntimeError(f"{argv[0]} exited {proc.returncode}: "
+                               f"{(proc.stderr or proc.stdout)[:300]}")
+        return proc.stdout
+
+
+class ClaudeCode(CliProvider):
+    """Claude Code headless.
+
+    ``--system-prompt`` replaces the agent prompt with the same SYSTEM string
+    the API path sends, ``--allowed-tools ""`` leaves it no tools,
+    ``--strict-mcp-config`` keeps the machine's MCP servers out, and
+    ``--output-format json`` returns real token counts.
+    """
+
+    name = "claude-code"
+
+    def __init__(self, model: str | None = None):
+        self.model = model or "cli-default"
+        self.argv = (("claude", "-p",
+                      "--system-prompt", SYSTEM,
+                      "--allowed-tools", "",
+                      "--strict-mcp-config",
+                      "--exclude-dynamic-system-prompt-sections",
+                      "--output-format", "json")
+                     + (("--model", model) if model else ()))
+        # no positional prompt: it arrives on stdin
+
+    def call(self, prompt: str):
+        raw = self._run(self.argv, prompt)
+        try:
+            blob = json.loads(raw)
+        except json.JSONDecodeError:
+            return raw, 0, 0  # fall back to scraping the text
+        usage = blob.get("usage", {})
+        billed_in = (usage.get("input_tokens", 0)
+                     + usage.get("cache_creation_input_tokens", 0)
+                     + usage.get("cache_read_input_tokens", 0))
+        return blob.get("result", ""), billed_in, usage.get("output_tokens", 0)
+
+
+class Codex(CliProvider):
+    """Codex CLI headless, against a ChatGPT subscription.
+
+    ``--sandbox read-only`` is the equivalent guard: Codex defaults to
+    ``danger-full-access`` in exec mode.
+    """
+
+    name = "codex"
+
+    def __init__(self, model: str | None = None):
+        self.model = model or "cli-default"
+        self.argv = (("codex", "exec", "--skip-git-repo-check",
+                      "--sandbox", "read-only")
+                     + (("--model", model) if model else ())
+                     + ("-",))  # trailing "-" tells Codex to read stdin
+
+    def call(self, prompt: str):
+        return self._run(self.argv, f"{SYSTEM}\n\n{prompt}"), 0, 0
+
+
+PROVIDERS = {"anthropic": Anthropic, "openai": OpenAI,
+             "claude-code": ClaudeCode, "codex": Codex}
+
+
 # ------------------------------------------------------------------ parsing
 
 def parse_pmf(text: str) -> list[float] | None:
     """Pull the four probabilities out of a reply and normalise them.
 
+    Scans every ``{...}`` and keeps the **last** one that parses into a
+    complete answer. Last rather than first matters for the CLI providers,
+    which echo the prompt back -- and the prompt contains a
+    ``{"0": <p>, ...}`` template that sits earlier in the stream than the reply.
+
     Tolerant of fenced code blocks and of a model that adds a sentence anyway,
     but not tolerant of missing keys: a partial answer is discarded rather than
     silently completed with zeros.
     """
-    match = re.search(r"\{[^{}]*\}", text, re.S)
-    if not match:
-        return None
-    try:
-        obj = json.loads(match.group(0))
-    except json.JSONDecodeError:
-        return None
-    try:
-        values = [float(obj[k]) for k in ("0", "1", "2", "3+")]
-    except (KeyError, TypeError, ValueError):
-        return None
-    total = sum(values)
-    if total <= 0 or any(v < 0 for v in values):
-        return None
-    return [v / total for v in values]
+    best = None
+    for match in re.finditer(r"\{[^{}]*\}", text, re.S):
+        try:
+            obj = json.loads(match.group(0))
+            values = [float(obj[k]) for k in ("0", "1", "2", "3+")]
+        except (json.JSONDecodeError, KeyError, TypeError, ValueError):
+            continue
+        total = sum(values)
+        if total <= 0 or any(v < 0 for v in values):
+            continue
+        best = [v / total for v in values]
+    return best
 
 
 # -------------------------------------------------------------------- cache

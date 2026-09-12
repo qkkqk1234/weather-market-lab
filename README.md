@@ -182,11 +182,11 @@ observed? Four outcomes — `0` (the day is over), `1`, `2`, `3+`.
 
 Three predictors, identical days, identical outcomes, scored on log loss:
 
-| local hour | n | unconditional | empirical table | language model |
-|---:|---:|---:|---:|---:|
-| 13 | 120 | **0.8651** | 0.9052 | not yet run |
-| 14 | 120 | **0.6520** | 0.6933 | not yet run |
-| 15 | 120 | **0.5176** | 0.5800 | not yet run |
+| local hour | n | unconditional | empirical table |
+|---:|---:|---:|---:|
+| 13 | 120 | **0.8651** | 0.9052 |
+| 14 | 120 | **0.6520** | 0.6933 |
+| 15 | 120 | **0.5176** | 0.5800 |
 
 **The conditioning features are a net negative at every hour.** The empirical
 table loses to its own unconditional control — same pipeline, same training
@@ -194,6 +194,37 @@ window, features switched off. Rise, dewpoint spread and cloud cover carry
 morning information; by the afternoon they are fitting noise. So the bar is the
 unconditional column, and the empirical approach has already failed to clear
 it. That is precisely what makes this window worth asking a model about.
+
+#### A pilot, and what it says so far
+
+Ten days, three hours, Claude Sonnet through the CLI provider. **n = 10 per
+hour decides nothing** — it is here because the diagnosis it produced is worth
+more than the scores:
+
+| local hour | n | unconditional | empirical table | language model |
+|---:|---:|---:|---:|---:|
+| 13 | 10 | 1.3603 | 1.5211 | **1.1388** |
+| 14 | 10 | **0.9623** | 1.0848 | 1.0783 |
+| 15 | 10 | 0.6631 | **0.5457** | 1.0510 |
+
+Ahead of both baselines at 13:00, well behind by 15:00. The reason is visible
+in the raw answers:
+
+| | 13:00 | 14:00 | 15:00 |
+|---|---:|---:|---:|
+| model's mean P(the day is over) | 0.319 | 0.323 | 0.385 |
+| empirical table | 0.602 | 0.765 | 0.838 |
+
+**The model barely moves with the clock.** It sits near one-third whether it is
+13:00 or 15:00, while the real lock curve climbs steeply through the afternoon.
+So it wins where genuine uncertainty is high and the table is overconfident,
+and loses badly once the answer is nearly settled and hedging is simply wrong.
+
+That is a miscalibrated time-of-day prior, not an inability to read the trace —
+and it suggests the experiment worth running next: give the model the
+unconditional hour prior in the prompt and score whether it can *adjust* that
+prior from the observations, rather than having to rediscover the diurnal cycle
+from scratch on every call.
 
 The model and the table see exactly the same published observations. The table
 compresses them into four binned features; the model gets the raw hourly
@@ -207,6 +238,8 @@ python -X utf8 studies/06_llm_vs_baseline.py --dry-run     # print one prompt
 python -X utf8 studies/06_llm_vs_baseline.py --estimate    # price it, call nothing
 ANTHROPIC_API_KEY=... python -X utf8 studies/06_llm_vs_baseline.py \
     --provider anthropic --days 120
+# or, with no API key at all, through a coding-agent CLI you already have:
+python -X utf8 studies/06_llm_vs_baseline.py --provider claude-code --days 10
 ```
 
 **What it costs.** Measured, not guessed: 360 calls at ~512 input and ~60 output
@@ -215,6 +248,28 @@ days at three hours. The study that would actually settle the question is 600
 warm-season days × 4 hours × 4 models × 5 samples ≈ 48,000 calls ≈ 25M input
 tokens, plus prompt iteration. That is the arithmetic, and it is the reason this
 repo has an open question rather than an answer.
+
+**On running it through an agent CLI instead.** `--provider claude-code` and
+`--provider codex` work and need no API key, which is handy for a pilot. They
+are the wrong tool at scale, for a measured reason:
+
+| path | tokens per call | list price per call |
+|---|---:|---:|
+| API `/v1/messages` | ~512 in + 60 out | $0.0024 |
+| `claude -p`, tools disabled | ~43,000 in + ~500 out | $0.17 |
+
+The agent scaffolding travels with every call and dwarfs a 500-token question —
+about 80× the tokens for the same answer. Two traps worth naming, both hit
+while building this:
+
+* **These CLIs are agents.** At defaults they run in the directory you launch
+  them from with file-editing tools live, and will cheerfully rewrite the
+  repository instead of answering. `wxlab.llm.CliProvider` pins tools off, MCP
+  off, its own system prompt, and a throwaway working directory.
+* **On Windows they are `.CMD` shims.** A prompt passed as an argument goes
+  through cmd.exe, which drops embedded newlines, so the observation table
+  arrives truncated and the model answers that no data was supplied. The prompt
+  goes on stdin.
 
 ## Reproduce
 

@@ -1,0 +1,9 @@
+{
+ "provider": "claude-code",
+ "model": "claude-sonnet-5",
+ "day": "2026-09-12",
+ "hour": 15,
+ "raw": "{\"0\": 0.35, \"1\": 0.38, \"2\": 0.19, \"3+\": 0.08}",
+ "input_tokens": 42851,
+ "output_tokens": 1347
+}
