@@ -185,26 +185,67 @@ class Anthropic(Provider):
         return text, usage.get("input_tokens", 0), usage.get("output_tokens", 0)
 
 
-class OpenAI(Provider):
-    name = "openai"
+class OpenAICompatible(Provider):
+    """Any endpoint that speaks ``/chat/completions``.
 
-    def __init__(self, model: str = "gpt-5", key_env: str = "OPENAI_API_KEY"):
-        self.model = model
-        self.key = os.environ.get(key_env)
+    That is most of them: OpenAI, DeepSeek, Moonshot, Zhipu, Qwen, OpenRouter,
+    a local vLLM or Ollama server. Subclass with a base URL and a key
+    environment variable, or point ``--base-url`` at one from the command line.
+
+    Only the token-limit field differs in practice -- OpenAI's newer models want
+    ``max_completion_tokens`` where everyone else still takes ``max_tokens`` --
+    so that is a class attribute rather than a fork of the whole method.
+    """
+
+    name = "openai-compatible"
+    base_url = ""
+    key_env = ""
+    default_model = ""
+    token_limit_field = "max_tokens"
+
+    def __init__(self, model: str | None = None, *, base_url: str | None = None,
+                 key_env: str | None = None):
+        self.model = model or self.default_model
+        self.base_url = (base_url or self.base_url).rstrip("/")
+        env = key_env or self.key_env
+        self.key = os.environ.get(env)
         if not self.key:
-            raise RuntimeError(f"{key_env} is not set")
+            raise RuntimeError(f"{env} is not set")
 
     def call(self, prompt: str):
         data = self._post(
-            "https://api.openai.com/v1/chat/completions",
+            f"{self.base_url}/chat/completions",
             {"Authorization": f"Bearer {self.key}", "Content-Type": "application/json"},
-            {"model": self.model, "max_completion_tokens": 300,
+            {"model": self.model, self.token_limit_field: 400,
              "messages": [{"role": "system", "content": SYSTEM},
                           {"role": "user", "content": prompt}]},
         )
-        text = data["choices"][0]["message"]["content"]
+        choice = data["choices"][0]["message"]
+        # Reasoning models put the answer in `content` and the chain elsewhere;
+        # concatenating both would feed the scratchpad to the parser, and the
+        # scratchpad is full of half-formed distributions.
+        text = choice.get("content") or ""
         usage = data.get("usage", {})
         return text, usage.get("prompt_tokens", 0), usage.get("completion_tokens", 0)
+
+
+class OpenAI(OpenAICompatible):
+    name = "openai"
+    base_url = "https://api.openai.com/v1"
+    key_env = "OPENAI_API_KEY"
+    default_model = "gpt-5"
+    token_limit_field = "max_completion_tokens"
+
+
+class DeepSeek(OpenAICompatible):
+    """DeepSeek. ``deepseek-chat`` for the fast path, ``deepseek-reasoner`` to
+    let it think first -- worth comparing on this task, since the pilot's
+    failure was a prior it never stopped to check."""
+
+    name = "deepseek"
+    base_url = "https://api.deepseek.com/v1"
+    key_env = "DEEPSEEK_API_KEY"
+    default_model = "deepseek-chat"
 
 
 class CliProvider(Provider):
@@ -321,7 +362,8 @@ class Codex(CliProvider):
         return self._run(self.argv, f"{SYSTEM}\n\n{prompt}"), 0, 0
 
 
-PROVIDERS = {"anthropic": Anthropic, "openai": OpenAI,
+PROVIDERS = {"anthropic": Anthropic, "openai": OpenAI, "deepseek": DeepSeek,
+             "openai-compatible": OpenAICompatible,
              "claude-code": ClaudeCode, "codex": Codex}
 
 

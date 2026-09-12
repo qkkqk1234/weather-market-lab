@@ -21,6 +21,8 @@ by anyone with the cache and costs nothing to re-score.
     python -X utf8 studies/06_llm_vs_baseline.py --estimate
     python -X utf8 studies/06_llm_vs_baseline.py --dry-run
     python -X utf8 studies/06_llm_vs_baseline.py --provider anthropic --days 120
+    python -X utf8 studies/06_llm_vs_baseline.py --provider deepseek --days 120
+    python -X utf8 studies/06_llm_vs_baseline.py --provider openai-compatible         --base-url https://api.moonshot.cn/v1 --key-env MOONSHOT_API_KEY --model ...
 """
 
 import argparse
@@ -32,17 +34,20 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from wxlab import load_metar  # noqa: E402
-from wxlab.llm import (MAX_DELTA, Usage, build_prompt, estimate_cost,  # noqa: E402
-                       predict)
+from wxlab.llm import (MAX_DELTA, PROVIDERS, Usage, build_prompt,  # noqa: E402
+                       estimate_cost, predict)
 from wxlab.model import DeltaModel  # noqa: E402
 from wxlab.report import REPORTS  # noqa: E402
 
 HOURS = (13, 14, 15)
 WARM = range(4, 11)
 
-# Published list prices, $ per million tokens, as of 2026-09. Passed in rather
-# than hidden in the library so a stale number is visible and editable.
-PRICES = {"claude-sonnet-5": (3.0, 15.0), "gpt-5": (1.25, 10.0)}
+# List prices, $ per million tokens (input, output), as of 2026-09. Kept here
+# rather than in the library so a stale number is visible and editable -- check
+# the provider's current page before quoting any of these.
+PRICES = {"claude-sonnet-5": (3.0, 15.0),
+          "gpt-5": (1.25, 10.0),
+          "deepseek-chat": (0.27, 1.10)}
 
 
 def held_out_days(metar, n):
@@ -65,9 +70,12 @@ def log_loss(pmf, outcome):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--provider", choices=("anthropic", "openai", "claude-code", "codex"),
-                    help="anthropic/openai bill an API key; claude-code/codex drive "
-                         "the local agent CLI headless, against a subscription")
+    ap.add_argument("--provider", choices=tuple(PROVIDERS),
+                    help="anthropic/openai/deepseek bill an API key; "
+                         "openai-compatible takes --base-url for anything else; "
+                         "claude-code/codex drive a local agent CLI headless")
+    ap.add_argument("--base-url", help="for --provider openai-compatible")
+    ap.add_argument("--key-env", help="environment variable holding the API key")
     ap.add_argument("--model")
     ap.add_argument("--days", type=int, default=120)
     ap.add_argument("--estimate", action="store_true", help="price the run, call nothing")
@@ -124,9 +132,13 @@ def main():
     if args.provider:
         from concurrent.futures import ThreadPoolExecutor
 
-        from wxlab.llm import PROVIDERS
         cls = PROVIDERS[args.provider]
-        provider = cls(args.model) if args.model else cls()
+        kwargs = {}
+        if args.base_url:
+            kwargs["base_url"] = args.base_url
+        if args.key_env:
+            kwargs["key_env"] = args.key_env
+        provider = cls(args.model, **kwargs) if (args.model or kwargs) else cls()
         todo = sorted(outcomes)
         print(f"\nquerying {provider.name}/{provider.model}, {len(todo)} points, "
               f"{args.workers} worker(s) ...")

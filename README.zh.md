@@ -160,12 +160,26 @@
 ```bash
 python -X utf8 studies/06_llm_vs_baseline.py --dry-run     # 打印一条提示
 python -X utf8 studies/06_llm_vs_baseline.py --estimate    # 只估价，不调用
-ANTHROPIC_API_KEY=... python -X utf8 studies/06_llm_vs_baseline.py     --provider anthropic --days 120
+
+ANTHROPIC_API_KEY=... python -X utf8 studies/06_llm_vs_baseline.py --provider anthropic
+DEEPSEEK_API_KEY=...  python -X utf8 studies/06_llm_vs_baseline.py --provider deepseek
+
+# 任何讲 /chat/completions 的端点——Moonshot、智谱、通义、OpenRouter、本地 vLLM 或 Ollama：
+python -X utf8 studies/06_llm_vs_baseline.py --provider openai-compatible     --base-url https://api.example.com/v1 --key-env MY_API_KEY --model my-model
+
 # 或者完全不用 API key，走本机已有的编码 agent CLI：
 python -X utf8 studies/06_llm_vs_baseline.py --provider claude-code --days 10
 ```
 
-**要花多少钱。** 实测不是拍脑袋：360 次调用，每次约 512 输入 + 60 输出 token——一个模型跑 120 天 × 3 个时点，Sonnet 约 $0.88，GPT-5 约 $0.45。真正能把这个问题定下来的研究规模是 600 个暖季日 × 4 个时点 × 4 个模型 × 5 次采样 ≈ 48,000 次调用 ≈ 2,500 万输入 token，外加提示迭代。这就是那笔算术，也是这个仓库现在只有问题没有答案的原因。
+**要花多少钱。** 实测不是拍脑袋：360 次调用，每次约 512 输入 + 60 输出 token，一个模型跑 120 天 × 3 个时点。
+
+| 模型 | 120 天 × 3 时点 | 下面那个完整研究 |
+|---|---:|---:|
+| claude-sonnet-5 | $0.88 | 约 $120 |
+| gpt-5 | $0.45 | 约 $60 |
+| deepseek-chat | **$0.07** | 约 $10 |
+
+基准在便宜模型上便宜到谁都能今天就跑一遍——这是刻意的，也正是本文这些数字可核而不是"赞助来的"的原因。真正能把这个问题定下来的研究规模是 600 个暖季日 × 4 个时点 × 4 个模型 × 5 次采样 ≈ 48,000 次调用 ≈ 2,500 万输入 token，外加提示迭代。这就是那笔算术，也是这个仓库现在只有问题没有答案的原因。
 
 **关于改用 agent CLI 跑。** `--provider claude-code` 和 `--provider codex` 能用、且不需要 API key，试水正合适；但规模一上去就是错的工具，理由是实测的：
 
