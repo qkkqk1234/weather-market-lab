@@ -1,0 +1,9 @@
+{
+ "provider": "deepseek",
+ "model": "deepseek-chat",
+ "day": "2026-07-08",
+ "hour": 14,
+ "raw": "{\"0\": 0.06, \"1\": 0.31, \"2\": 0.43, \"3+\": 0.20}",
+ "input_tokens": 660,
+ "output_tokens": 33
+}

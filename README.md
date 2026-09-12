@@ -16,9 +16,10 @@ places an edge could still be, and which of them are already closed.
 
 > **Finding.** Over 174 settled days this market prices its buckets well. The
 > baseline model does not beat it at any decision hour, and a gated strategy
-> trading the disagreement is within one sigma of the market's own predictions
-> (20 winners against 16.8 expected, z = +0.83). There is no edge here to
-> report.
+> trading the disagreement came out at 14 winners against the 16.7 the market's
+> own prices predicted (z = −0.70). There is no edge here to report. A language
+> model given the same observations does not beat the frequency table either —
+> [§7](#7-the-evaluation-this-repo-exists-for), on 360 scored forecasts.
 
 Everything below regenerates from a 600 KB bundled snapshot in about two
 minutes.
@@ -58,13 +59,13 @@ to 1. Current settlement regime only.
 
 | local hour | n | model log loss | market log loss | model top-1 | market top-1 |
 |---:|---:|---:|---:|---:|---:|
-| 09 | 16 | 1.994 | **1.348** | 18.8% | **37.5%** |
-| 10 | 16 | 1.789 | **1.364** | 12.5% | **43.8%** |
-| 11 | 15 | 1.542 | **1.071** | 33.3% | **46.7%** |
-| 12 | 14 | 1.502 | **0.959** | 28.6% | **64.3%** |
-| 13 | 14 | 1.340 | **0.976** | 50.0% | 50.0% |
-| 14 | 14 | 1.058 | **0.958** | 50.0% | **64.3%** |
-| 15 | 14 | 0.575 | **0.461** | 78.6% | 78.6% |
+| 09 | 16 | 1.869 | **1.348** | 31.2% | **37.5%** |
+| 10 | 16 | 1.803 | **1.364** | 12.5% | **43.8%** |
+| 11 | 15 | 1.520 | **1.071** | 40.0% | **46.7%** |
+| 12 | 14 | 1.584 | **0.959** | 28.6% | **64.3%** |
+| 13 | 14 | 1.502 | **0.976** | 42.9% | **50.0%** |
+| 14 | 14 | 1.246 | **0.958** | 50.0% | **64.3%** |
+| 15 | 14 | 0.539 | **0.461** | **85.7%** | 78.6% |
 
 ![model vs market](reports/model_vs_market.png)
 
@@ -79,20 +80,20 @@ resolution, flat $1 per ticket, ≤ 2 tickets a day, entries before noon.
 
 | regime | days | trades | ROI | wins | expected | z |
 |---|---:|---:|---:|---:|---:|---:|
-| Weather Underground (03-23 → 08-23) | 134 | 254 | −34.2% | 18 | 15.1 | +0.81 |
-| NOAA / Bao'an METAR (08-24 → 09-11) | 14 | 26 | +12.5% | 2 | 1.8 | +0.17 |
-| **combined** | **148** | **280** | **−29.8%** | **20** | **16.8** | **+0.83** |
+| Weather Underground (03-23 → 08-23) | 135 | 252 | −50.2% | 12 | 15.1 | −0.86 |
+| NOAA / Bao'an METAR (08-24 → 09-11) | 15 | 26 | +12.5% | 2 | 1.6 | +0.38 |
+| **combined** | **150** | **278** | **−44.4%** | **14** | **16.7** | **−0.70** |
 
 ![cumulative P&L](reports/pnl_curve.png)
 
 *Expected* is the sum of the market's own quoted probabilities for exactly the
-tickets bought. z = +0.83 is p ≈ 0.20 one-sided — not evidence of anything.
-Result 2 is the better-powered statement.
+tickets bought. z = −0.70 is not evidence of anything either way. Result 2 is
+the better-powered statement.
 
 **How to read the ROI, and how not to.** Mean ticket price is $0.07, so one
 2-cent winner swings ROI by tens of points. On 280 longshot tickets the ROI
 estimate is mostly noise: the same gate filled at the mid, with no crossing
-cost at all, comes out at −54.6% because a different handful of tickets happens
+cost at all, comes out at −62.2% because a different handful of tickets happens
 to win. Read the win-count z, not the ROI.
 
 ### 4. A silent resolution-source change
@@ -182,49 +183,56 @@ observed? Four outcomes — `0` (the day is over), `1`, `2`, `3+`.
 
 Three predictors, identical days, identical outcomes, scored on log loss:
 
-| local hour | n | unconditional | empirical table |
-|---:|---:|---:|---:|
-| 13 | 120 | **0.8651** | 0.9052 |
-| 14 | 120 | **0.6520** | 0.6933 |
-| 15 | 120 | **0.5176** | 0.5800 |
-
-**The conditioning features are a net negative at every hour.** The empirical
-table loses to its own unconditional control — same pipeline, same training
-window, features switched off. Rise, dewpoint spread and cloud cover carry
-morning information; by the afternoon they are fitting noise. So the bar is the
-unconditional column, and the empirical approach has already failed to clear
-it. That is precisely what makes this window worth asking a model about.
-
-#### A pilot, and what it says so far
-
-Ten days, three hours, Claude Sonnet through the CLI provider. **n = 10 per
-hour decides nothing** — it is here because the diagnosis it produced is worth
-more than the scores:
-
-| local hour | n | unconditional | empirical table | language model |
+| local hour | n | unconditional | empirical table | deepseek-chat |
 |---:|---:|---:|---:|---:|
-| 13 | 10 | 1.3603 | 1.5211 | **1.1388** |
-| 14 | 10 | **0.9623** | 1.0848 | 1.0783 |
-| 15 | 10 | 0.6631 | **0.5457** | 1.0510 |
+| 13 | 120 | **0.8651** | 0.8783 | 1.1342 |
+| 14 | 120 | 0.6520 | **0.5997** | 0.9443 |
+| 15 | 120 | 0.5176 | **0.3632** | 0.5771 |
 
-Ahead of both baselines at 13:00, well behind by 15:00. The reason is visible
-in the raw answers:
+**The language model loses to the frequency table at every hour**, on 360
+scored forecasts costing $0.08. Not close at 13:00 and 14:00; at 15:00 it is
+beaten by a table that knows only the hour.
+
+Why, in one table — mean probability each predictor assigned to "the day is
+already over", against how often it actually was:
 
 | | 13:00 | 14:00 | 15:00 |
 |---|---:|---:|---:|
-| model's mean P(the day is over) | 0.319 | 0.323 | 0.385 |
-| empirical table | 0.602 | 0.765 | 0.838 |
+| **what actually happened** | **0.650** | **0.792** | **0.925** |
+| empirical table | 0.658 | 0.788 | 0.864 |
+| deepseek-chat | 0.334 | 0.474 | 0.591 |
+| claude-sonnet-5 (pilot, n=10/hr) | 0.319 | 0.323 | 0.385 |
 
-**The model barely moves with the clock.** It sits near one-third whether it is
-13:00 or 15:00, while the real lock curve climbs steeply through the afternoon.
-So it wins where genuine uncertainty is high and the table is overconfident,
-and loses badly once the answer is nearly settled and hedging is simply wrong.
+**Both models are badly under-confident, and they barely move with the clock.**
+The true rate climbs from 0.65 to 0.93 through the afternoon; DeepSeek goes
+0.33 → 0.59, Sonnet is nearly flat at a third. They hedge exactly where hedging
+is wrong. It is not that they cannot read the trace — they are shown every
+hourly observation, including the one that says the temperature peaked two
+hours ago — it is that nothing anchors them to the diurnal base rate.
 
-That is a miscalibrated time-of-day prior, not an inability to read the trace —
-and it suggests the experiment worth running next: give the model the
-unconditional hour prior in the prompt and score whether it can *adjust* that
-prior from the observations, rather than having to rediscover the diurnal cycle
-from scratch on every call.
+#### The baseline had the same disease, and fixing it is instructive
+
+The first version of the table sat at 0.608 / 0.639 / 0.672 against that same
+0.650 / 0.792 / 0.925 — under-confident in the same direction, for a concrete
+reason: its features were rise, dewpoint spread and cloud cover, and **none of
+them can express "the temperature is already two degrees below today's peak".**
+Measured across 2,732 warm-season days, that one field separates the outcome
+more than the other three together:
+
+| | gap 0 | gap 1 | gap 2+ |
+|---|---:|---:|---:|
+| P(the high is already in), 13:00 | 0.630 | 0.875 | 0.930 |
+| P(the high is already in), 15:00 | 0.919 | 0.978 | 0.993 |
+
+Adding it moved the table to 0.658 / 0.788 / 0.864 and turned it from *losing*
+to its own unconditional control at every hour into beating it at 14:00 and
+15:00. The models are shown that gap explicitly, in the trace, and still do not
+use it.
+
+That is the finding to take away, and it names the next experiment: put the
+unconditional hour prior in the prompt and score whether a model can *adjust* a
+base rate it is handed, rather than having to rediscover the diurnal cycle on
+every call.
 
 The model and the table see exactly the same published observations. The table
 compresses them into four binned features; the model gets the raw hourly
@@ -304,9 +312,10 @@ data/        bundled snapshot, ~600 KB of plain CSV
 At decision hour `h` the running max is known and the day's high can only go
 up, so the running max is a hard floor and the only unknown is
 `delta = daily_max − temperature_now`. `P(delta)` is an empirical frequency
-table over (hour, 2-hour rise, dewpoint spread, cloud cover), backing off to
-coarser cells below 60 observations. Trained on ~2,700 warm-season days from
-2014 on.
+table over (hour, gap below the running max, 2-hour rise, dewpoint spread,
+cloud cover), backing off to coarser cells below 60 observations. Trained on
+~2,700 warm-season days from 2014 on. The gap term is worth more than the other
+three together — see §7.
 
 Deliberately plain: every number traces to a countable set of past days, which
 is what you want when the thing you are testing against may simply be right.
@@ -365,10 +374,10 @@ GETs and nothing else. Nothing here is investment advice.
 
 **Can a language model tell, at 14:00, that the day is already over?**
 
-§5 shows the market is wrong about that for one to three hours. §7 shows the
-empirical approach cannot answer it — the conditioning features are a net
-negative in exactly that window. The benchmark is built, tested and priced; the
-language model column is empty.
+§5 shows the market is wrong about that for one to three hours. §7 puts the
+question to a model on 360 scored forecasts: **no, not yet** — it loses to a
+frequency table at every hour, and the reason is a base rate it never anchors
+to rather than a trace it cannot read.
 
 It is a better question than "what will the high be": narrower, with a physical
 answer, and the evidence a person would use — a sea breeze front in the wind
@@ -376,8 +385,10 @@ record, a cloud deck arriving on satellite, the wording of a forecast discussion
 — is exactly the kind a frequency table cannot encode and a language model
 might.
 
-Results, positive or negative, will be committed to `reports/` with the response
-cache, so anyone can re-score them without spending anything.
+What is still open is whether that is fixable in the prompt or is a real limit:
+hand the model the hour's unconditional prior and score whether it can adjust
+it. Every result, positive or negative, is committed to `reports/` with the
+response cache, so anyone can re-score without spending anything.
 
 ## License
 
