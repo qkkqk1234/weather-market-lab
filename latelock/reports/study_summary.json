@@ -1,0 +1,32 @@
+{
+  "profiles": 51,
+  "weather_candidates": [
+    "taipei",
+    "qingdao",
+    "amsterdam",
+    "sanfrancisco",
+    "chengdu",
+    "kualalumpur",
+    "paris",
+    "wuhan",
+    "singapore",
+    "beijing",
+    "karachi",
+    "dallas",
+    "london",
+    "miami",
+    "telaviv",
+    "saopaulo",
+    "ankara",
+    "munich",
+    "moscow",
+    "zhengzhou",
+    "atlanta"
+  ],
+  "trade_opportunities": {
+    "eligible_city_days": 378,
+    "days_with_cheap_buy_prints": 2,
+    "days_with_later_target_sell_print": 2,
+    "warning": "Opportunity evidence only. No proven fills, capacity, portfolio P&L or return estimate."
+  }
+}

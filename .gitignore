@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+.idea/
+.vscode/
+
+# latelock runtime artefacts -- research outputs live in latelock/reports/
+latelock/data/
+*.sqlite
+*.sqlite-*
+*.jsonl
+HALT
+runner.lock

@@ -1,0 +1,34 @@
+[
+  {
+    "regime": "Weather Underground (Lau Fau Shan sensor)",
+    "start": "2026-03-23",
+    "end": "2026-08-23",
+    "n_trades": 241,
+    "n_days": 130,
+    "stake": 241.0,
+    "returned": 131.41,
+    "roi": -0.4547,
+    "wins": 15,
+    "hit_rate": 0.0622,
+    "mean_fill": 0.0716,
+    "expected_wins": 14.86,
+    "z_score": 0.04,
+    "max_drawdown": -108.24
+  },
+  {
+    "regime": "NOAA / Bao'an METAR",
+    "start": "2026-08-24",
+    "end": "2026-09-11",
+    "n_trades": 29,
+    "n_days": 15,
+    "stake": 29.0,
+    "returned": 18.18,
+    "roi": -0.373,
+    "wins": 1,
+    "hit_rate": 0.0345,
+    "mean_fill": 0.0714,
+    "expected_wins": 1.78,
+    "z_score": -0.62,
+    "max_drawdown": -27.0
+  }
+]

@@ -1,0 +1,1080 @@
+[
+  {
+    "city": "shenzhen",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 4483,
+      "wins": 4474,
+      "rate": 0.9979924157929958,
+      "lower95": 0.9965524664158671
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "tokyo",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 449,
+      "wins": 443,
+      "rate": 0.9866369710467706,
+      "lower95": 0.9743698894770121
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "taipei",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 423,
+      "wins": 423,
+      "rate": 1.0,
+      "lower95": 0.9936445660722595
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "shanghai",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 452,
+      "wins": 452,
+      "rate": 1.0,
+      "lower95": 0.9940499000000236
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "guangzhou",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 454,
+      "wins": 453,
+      "rate": 0.9977973568281938,
+      "lower95": 0.9901883134122756
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "toronto",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 406,
+      "wins": 401,
+      "rate": 0.9876847290640394,
+      "lower95": 0.9749199650293933
+    },
+    "validation": {
+      "n": 88,
+      "wins": 88,
+      "rate": 1.0,
+      "lower95": 0.9701722369872064
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "capetown",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 275,
+      "wins": 275,
+      "rate": 1.0,
+      "lower95": 0.9902575100934469
+    },
+    "validation": {
+      "n": 86,
+      "wins": 86,
+      "rate": 1.0,
+      "lower95": 0.9694997251722435
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "qingdao",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 425,
+      "wins": 424,
+      "rate": 0.9976470588235294,
+      "lower95": 0.9895232685438419
+    },
+    "validation": {
+      "n": 90,
+      "wins": 90,
+      "rate": 1.0,
+      "lower95": 0.9708157316888487
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "busan",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 425,
+      "wins": 425,
+      "rate": 1.0,
+      "lower95": 0.9936742848076136
+    },
+    "validation": {
+      "n": 91,
+      "wins": 91,
+      "rate": 1.0,
+      "lower95": 0.9711271782397718
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "manila",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 410,
+      "wins": 410,
+      "rate": 1.0,
+      "lower95": 0.9934443733625392
+    },
+    "validation": {
+      "n": 89,
+      "wins": 88,
+      "rate": 0.9887640449438202,
+      "lower95": 0.9511992188200772
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "mexicocity",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 374,
+      "wins": 374,
+      "rate": 1.0,
+      "lower95": 0.9928178825581176
+    },
+    "validation": {
+      "n": 84,
+      "wins": 84,
+      "rate": 1.0,
+      "lower95": 0.9687961882676184
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "warsaw",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 443,
+      "wins": 439,
+      "rate": 0.9909706546275395,
+      "lower95": 0.9800406400388999
+    },
+    "validation": {
+      "n": 88,
+      "wins": 88,
+      "rate": 1.0,
+      "lower95": 0.9701722369872064
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "milan",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 439,
+      "wins": 438,
+      "rate": 0.9977220956719818,
+      "lower95": 0.9898552239522064
+    },
+    "validation": {
+      "n": 85,
+      "wins": 85,
+      "rate": 1.0,
+      "lower95": 0.9691519675091977
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "amsterdam",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 436,
+      "wins": 429,
+      "rate": 0.9839449541284404,
+      "lower95": 0.9706487229767219
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "panama",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 292,
+      "wins": 292,
+      "rate": 1.0,
+      "lower95": 0.9908195026724468
+    },
+    "validation": {
+      "n": 56,
+      "wins": 56,
+      "rate": 1.0,
+      "lower95": 0.9539133224069206
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "jeddah",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 418,
+      "wins": 417,
+      "rate": 0.9976076555023924,
+      "lower95": 0.9893490087209657
+    },
+    "validation": {
+      "n": 89,
+      "wins": 89,
+      "rate": 1.0,
+      "lower95": 0.9704974928211433
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "denver",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 347,
+      "wins": 347,
+      "rate": 1.0,
+      "lower95": 0.992263366981912
+    },
+    "validation": {
+      "n": 73,
+      "wins": 73,
+      "rate": 1.0,
+      "lower95": 0.9642622807967034
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "houston",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 383,
+      "wins": 382,
+      "rate": 0.9973890339425587,
+      "lower95": 0.9883828682829687
+    },
+    "validation": {
+      "n": 88,
+      "wins": 88,
+      "rate": 1.0,
+      "lower95": 0.9701722369872064
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "sanfrancisco",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 395,
+      "wins": 393,
+      "rate": 0.9949367088607595,
+      "lower95": 0.9848164015525276
+    },
+    "validation": {
+      "n": 91,
+      "wins": 91,
+      "rate": 1.0,
+      "lower95": 0.9711271782397718
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "seattle",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 384,
+      "wins": 381,
+      "rate": 0.9921875,
+      "lower95": 0.9806143737919389
+    },
+    "validation": {
+      "n": 88,
+      "wins": 88,
+      "rate": 1.0,
+      "lower95": 0.9701722369872064
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "chengdu",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 424,
+      "wins": 424,
+      "rate": 1.0,
+      "lower95": 0.9936594602634065
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "buenosaires",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 418,
+      "wins": 416,
+      "rate": 0.9952153110047847,
+      "lower95": 0.9856458228361471
+    },
+    "validation": {
+      "n": 90,
+      "wins": 90,
+      "rate": 1.0,
+      "lower95": 0.9708157316888487
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "madrid",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 442,
+      "wins": 440,
+      "rate": 0.995475113122172,
+      "lower95": 0.9864199048956803
+    },
+    "validation": {
+      "n": 89,
+      "wins": 89,
+      "rate": 1.0,
+      "lower95": 0.9704974928211433
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "kualalumpur",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 447,
+      "wins": 447,
+      "rate": 1.0,
+      "lower95": 0.9939837444890834
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "paris",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 432,
+      "wins": 430,
+      "rate": 0.9953703703703703,
+      "lower95": 0.9861077500111739
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "wuhan",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 429,
+      "wins": 429,
+      "rate": 1.0,
+      "lower95": 0.9937328961948271
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "losangeles",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 385,
+      "wins": 384,
+      "rate": 0.9974025974025974,
+      "lower95": 0.9884427736457395
+    },
+    "validation": {
+      "n": 86,
+      "wins": 86,
+      "rate": 1.0,
+      "lower95": 0.9694997251722435
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "singapore",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 455,
+      "wins": 454,
+      "rate": 0.9978021978021978,
+      "lower95": 0.990209743368113
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "beijing",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 455,
+      "wins": 455,
+      "rate": 1.0,
+      "lower95": 0.9940888995276791
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "helsinki",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 440,
+      "wins": 432,
+      "rate": 0.9818181818181818,
+      "lower95": 0.9680215876738744
+    },
+    "validation": {
+      "n": 90,
+      "wins": 90,
+      "rate": 1.0,
+      "lower95": 0.9708157316888487
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "karachi",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 451,
+      "wins": 450,
+      "rate": 0.9977827050997783,
+      "lower95": 0.9901234569271079
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "chongqing",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 429,
+      "wins": 429,
+      "rate": 1.0,
+      "lower95": 0.9937328961948271
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "seoul",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 451,
+      "wins": 448,
+      "rate": 0.9933481152993349,
+      "lower95": 0.9834738033909489
+    },
+    "validation": {
+      "n": 91,
+      "wins": 91,
+      "rate": 1.0,
+      "lower95": 0.9711271782397718
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "austin",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 380,
+      "wins": 380,
+      "rate": 1.0,
+      "lower95": 0.9929304827160939
+    },
+    "validation": {
+      "n": 88,
+      "wins": 88,
+      "rate": 1.0,
+      "lower95": 0.9701722369872064
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "dallas",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 393,
+      "wins": 392,
+      "rate": 0.9974554707379135,
+      "lower95": 0.9886763417659099
+    },
+    "validation": {
+      "n": 89,
+      "wins": 89,
+      "rate": 1.0,
+      "lower95": 0.9704974928211433
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "nyc",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 401,
+      "wins": 393,
+      "rate": 0.9800498753117207,
+      "lower95": 0.9649421821131523
+    },
+    "validation": {
+      "n": 87,
+      "wins": 87,
+      "rate": 1.0,
+      "lower95": 0.9698397295203957
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "chicago",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 413,
+      "wins": 404,
+      "rate": 0.9782082324455206,
+      "lower95": 0.9629129768645633
+    },
+    "validation": {
+      "n": 91,
+      "wins": 90,
+      "rate": 0.989010989010989,
+      "lower95": 0.9522391165409857
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "london",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 445,
+      "wins": 439,
+      "rate": 0.9865168539325843,
+      "lower95": 0.9741414141923207
+    },
+    "validation": {
+      "n": 90,
+      "wins": 90,
+      "rate": 1.0,
+      "lower95": 0.9708157316888487
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "wellington",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 447,
+      "wins": 444,
+      "rate": 0.9932885906040269,
+      "lower95": 0.9833269784698618
+    },
+    "validation": {
+      "n": 88,
+      "wins": 85,
+      "rate": 0.9659090909090909,
+      "lower95": 0.9177291631410457
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "miami",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 389,
+      "wins": 389,
+      "rate": 1.0,
+      "lower95": 0.9930929150753455
+    },
+    "validation": {
+      "n": 88,
+      "wins": 88,
+      "rate": 1.0,
+      "lower95": 0.9701722369872064
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "telaviv",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 448,
+      "wins": 448,
+      "rate": 1.0,
+      "lower95": 0.9939970930169598
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "saopaulo",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 408,
+      "wins": 408,
+      "rate": 1.0,
+      "lower95": 0.9934124496315744
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "ankara",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 455,
+      "wins": 454,
+      "rate": 0.9978021978021978,
+      "lower95": 0.990209743368113
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "munich",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 447,
+      "wins": 445,
+      "rate": 0.9955257270693513,
+      "lower95": 0.9865707802892202
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "moscow",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 443,
+      "wins": 432,
+      "rate": 0.9751693002257337,
+      "lower95": 0.9598227390979717
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "lucknow",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 381,
+      "wins": 381,
+      "rate": 1.0,
+      "lower95": 0.9929489070453863
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "jinan",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 41,
+      "wins": 41,
+      "rate": 1.0,
+      "lower95": 0.9380961031422229
+    },
+    "validation": {
+      "n": 40,
+      "wins": 40,
+      "rate": 1.0,
+      "lower95": 0.9366465513545419
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "zhengzhou",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 429,
+      "wins": 429,
+      "rate": 1.0,
+      "lower95": 0.9937328961948271
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "status": "unselected_hypothesis_only"
+  },
+  {
+    "city": "atlanta",
+    "rule": {
+      "start_hour": 20,
+      "cooling_c": 0,
+      "flat_hours": 4,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 417,
+      "wins": 416,
+      "rate": 0.9976019184652278,
+      "lower95": 0.9893236401151065
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "status": "unselected_hypothesis_only"
+  }
+]

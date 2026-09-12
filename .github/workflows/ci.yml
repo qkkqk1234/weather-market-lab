@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: wxlab tests
+        run: python -X utf8 -m pytest tests/ -q
+      - name: latelock tests
+        working-directory: latelock
+        run: python -X utf8 -m pytest -q
+      - name: studies reproduce from the bundled snapshot
+        run: |
+          python -X utf8 studies/01_market_calibration.py
+          python -X utf8 studies/02_model_vs_market.py
+          python -X utf8 studies/04_settlement_source.py

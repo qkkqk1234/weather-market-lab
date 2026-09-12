@@ -1,0 +1,5 @@
+source,before_n,before_hit,after_n,after_hit
+Weather Underground page (Lau Fau Shan sensor),154,0.818,0,
+"HKO Lau Fau Shan, official daily max",153,0.667,0,
+HKO Wetland Park (4 km from Lau Fau Shan),153,0.405,0,
+Shenzhen Bao'an METAR (ZGSZ),155,0.232,19,1.0

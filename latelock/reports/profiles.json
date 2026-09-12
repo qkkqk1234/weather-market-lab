@@ -1,0 +1,3046 @@
+{
+  "shenzhen": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 3920,
+      "wins": 3920,
+      "rate": 1.0,
+      "lower95": 0.9993102863765521
+    },
+    "validation": {
+      "n": 73,
+      "wins": 73,
+      "rate": 1.0,
+      "lower95": 0.9642622807967034
+    },
+    "weather_lower95": 0.9642622807967034,
+    "baseline": {
+      "17": {
+        "n": 4584,
+        "wins": 4501,
+        "rate": 0.9818935427574171,
+        "lower95": 0.9783584737090378
+      },
+      "18": {
+        "n": 4584,
+        "wins": 4560,
+        "rate": 0.9947643979057592,
+        "lower95": 0.9926956709080405
+      },
+      "19": {
+        "n": 4584,
+        "wins": 4571,
+        "rate": 0.9971640488656196,
+        "lower95": 0.9955463679350732
+      },
+      "20": {
+        "n": 4584,
+        "wins": 4575,
+        "rate": 0.9980366492146597,
+        "lower95": 0.9966283586959724
+      },
+      "21": {
+        "n": 4584,
+        "wins": 4578,
+        "rate": 0.9986910994764397,
+        "lower95": 0.9974708732271121
+      }
+    },
+    "complete_days": 4584,
+    "first_day": "2014-01-02",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "49e7fbf49b5d97c0b81c279b6f6d6172b570262888c0aa92b5990c0326b5be5f",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "tokyo": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 388,
+      "wins": 387,
+      "rate": 0.9974226804123711,
+      "lower95": 0.9885314821707818
+    },
+    "validation": {
+      "n": 84,
+      "wins": 84,
+      "rate": 1.0,
+      "lower95": 0.9687961882676184
+    },
+    "weather_lower95": 0.9687961882676184,
+    "baseline": {
+      "17": {
+        "n": 547,
+        "wins": 526,
+        "rate": 0.9616087751371115,
+        "lower95": 0.9456670905469786
+      },
+      "18": {
+        "n": 547,
+        "wins": 533,
+        "rate": 0.9744058500914077,
+        "lower95": 0.9607484947930521
+      },
+      "19": {
+        "n": 547,
+        "wins": 537,
+        "rate": 0.9817184643510055,
+        "lower95": 0.9696545273178844
+      },
+      "20": {
+        "n": 547,
+        "wins": 539,
+        "rate": 0.9853747714808044,
+        "lower95": 0.9742316125927258
+      },
+      "21": {
+        "n": 547,
+        "wins": 541,
+        "rate": 0.9890310786106032,
+        "lower95": 0.9789307921247835
+      }
+    },
+    "complete_days": 547,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "69932e26e47caa4a3f213a229331e951298732534072607ba54ebdcc0d25687d",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "taipei": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 408,
+      "wins": 408,
+      "rate": 1.0,
+      "lower95": 0.9934124496315744
+    },
+    "validation": {
+      "n": 91,
+      "wins": 91,
+      "rate": 1.0,
+      "lower95": 0.9711271782397718
+    },
+    "weather_lower95": 0.9711271782397718,
+    "baseline": {
+      "17": {
+        "n": 517,
+        "wins": 515,
+        "rate": 0.9961315280464217,
+        "lower95": 0.988378410298334
+      },
+      "18": {
+        "n": 517,
+        "wins": 516,
+        "rate": 0.9980657640232108,
+        "lower95": 0.9913773822328174
+      },
+      "19": {
+        "n": 517,
+        "wins": 516,
+        "rate": 0.9980657640232108,
+        "lower95": 0.9913773822328174
+      },
+      "20": {
+        "n": 517,
+        "wins": 517,
+        "rate": 1.0,
+        "lower95": 0.994794083903524
+      },
+      "21": {
+        "n": 517,
+        "wins": 517,
+        "rate": 1.0,
+        "lower95": 0.994794083903524
+      }
+    },
+    "complete_days": 517,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "9593b6aa0c8e3cb7ff21a5690231cd020ffd753dcae5bf3f5328628731c95711",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "shanghai": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 427,
+      "wins": 427,
+      "rate": 1.0,
+      "lower95": 0.9937037269001756
+    },
+    "validation": {
+      "n": 82,
+      "wins": 82,
+      "rate": 1.0,
+      "lower95": 0.9680594286540215
+    },
+    "weather_lower95": 0.9680594286540215,
+    "baseline": {
+      "17": {
+        "n": 548,
+        "wins": 545,
+        "rate": 0.9945255474452555,
+        "lower95": 0.9863819313715778
+      },
+      "18": {
+        "n": 548,
+        "wins": 546,
+        "rate": 0.9963503649635036,
+        "lower95": 0.9890322060510939
+      },
+      "19": {
+        "n": 548,
+        "wins": 546,
+        "rate": 0.9963503649635036,
+        "lower95": 0.9890322060510939
+      },
+      "20": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      },
+      "21": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      }
+    },
+    "complete_days": 548,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "9a262c3136f9a6c108e4dd53be16df8715862aeea1650cd66d0f42c43d12e9c2",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "guangzhou": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 428,
+      "wins": 428,
+      "rate": 1.0,
+      "lower95": 0.9937183454097248
+    },
+    "validation": {
+      "n": 92,
+      "wins": 91,
+      "rate": 0.9891304347826086,
+      "lower95": 0.9527426220514683
+    },
+    "weather_lower95": 0.9527426220514683,
+    "baseline": {
+      "17": {
+        "n": 548,
+        "wins": 533,
+        "rate": 0.9726277372262774,
+        "lower95": 0.9586358666536556
+      },
+      "18": {
+        "n": 548,
+        "wins": 546,
+        "rate": 0.9963503649635036,
+        "lower95": 0.9890322060510939
+      },
+      "19": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      },
+      "20": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      },
+      "21": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      }
+    },
+    "complete_days": 548,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "6071126e3b9a44f44b1b0fad77fd0f4989b5ed8240fd49b1b304d9372bcaee67",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "toronto": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 362,
+      "wins": 361,
+      "rate": 0.9972375690607734,
+      "lower95": 0.987714209736913
+    },
+    "validation": {
+      "n": 85,
+      "wins": 85,
+      "rate": 1.0,
+      "lower95": 0.9691519675091977
+    },
+    "weather_lower95": 0.9691519675091977,
+    "baseline": {
+      "17": {
+        "n": 511,
+        "wins": 435,
+        "rate": 0.8512720156555773,
+        "lower95": 0.8235331350856036
+      },
+      "18": {
+        "n": 511,
+        "wins": 473,
+        "rate": 0.9256360078277887,
+        "lower95": 0.9042225880152661
+      },
+      "19": {
+        "n": 511,
+        "wins": 491,
+        "rate": 0.9608610567514677,
+        "lower95": 0.9441524636997042
+      },
+      "20": {
+        "n": 511,
+        "wins": 497,
+        "rate": 0.9726027397260274,
+        "lower95": 0.958008471527965
+      },
+      "21": {
+        "n": 511,
+        "wins": 500,
+        "rate": 0.9784735812133072,
+        "lower95": 0.9651238470770507
+      }
+    },
+    "complete_days": 511,
+    "first_day": "2025-02-28",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "8bd582dd0cd90a4d53790de48e27880f6cee20008bc0ac6991d4e2e3d9adf875",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "capetown": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 268,
+      "wins": 268,
+      "rate": 1.0,
+      "lower95": 0.9900055853324105
+    },
+    "validation": {
+      "n": 83,
+      "wins": 83,
+      "rate": 1.0,
+      "lower95": 0.9684321066636192
+    },
+    "weather_lower95": 0.9684321066636192,
+    "baseline": {
+      "17": {
+        "n": 361,
+        "wins": 357,
+        "rate": 0.9889196675900277,
+        "lower95": 0.9755492761681788
+      },
+      "18": {
+        "n": 361,
+        "wins": 361,
+        "rate": 1.0,
+        "lower95": 0.9925611706975896
+      },
+      "19": {
+        "n": 361,
+        "wins": 361,
+        "rate": 1.0,
+        "lower95": 0.9925611706975896
+      },
+      "20": {
+        "n": 361,
+        "wins": 361,
+        "rate": 1.0,
+        "lower95": 0.9925611706975896
+      },
+      "21": {
+        "n": 361,
+        "wins": 361,
+        "rate": 1.0,
+        "lower95": 0.9925611706975896
+      }
+    },
+    "complete_days": 361,
+    "first_day": "2025-03-13",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "19b3000fe64eba36744901278aea6df9a363eadb81a7e73649d753a3d6615001",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "qingdao": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 416,
+      "wins": 416,
+      "rate": 1.0,
+      "lower95": 0.9935383147025565
+    },
+    "validation": {
+      "n": 88,
+      "wins": 88,
+      "rate": 1.0,
+      "lower95": 0.9701722369872064
+    },
+    "weather_lower95": 0.9701722369872064,
+    "baseline": {
+      "17": {
+        "n": 515,
+        "wins": 514,
+        "rate": 0.9980582524271845,
+        "lower95": 0.9913440805584803
+      },
+      "18": {
+        "n": 515,
+        "wins": 514,
+        "rate": 0.9980582524271845,
+        "lower95": 0.9913440805584803
+      },
+      "19": {
+        "n": 515,
+        "wins": 514,
+        "rate": 0.9980582524271845,
+        "lower95": 0.9913440805584803
+      },
+      "20": {
+        "n": 515,
+        "wins": 514,
+        "rate": 0.9980582524271845,
+        "lower95": 0.9913440805584803
+      },
+      "21": {
+        "n": 515,
+        "wins": 514,
+        "rate": 0.9980582524271845,
+        "lower95": 0.9913440805584803
+      }
+    },
+    "complete_days": 515,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "aa803ad2cded13be529141b8c45f57a1cb7b76b16123b18d7f5d723bb6769b59",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "busan": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 414,
+      "wins": 414,
+      "rate": 1.0,
+      "lower95": 0.9935073015067928
+    },
+    "validation": {
+      "n": 87,
+      "wins": 87,
+      "rate": 1.0,
+      "lower95": 0.9698397295203957
+    },
+    "weather_lower95": 0.9698397295203957,
+    "baseline": {
+      "17": {
+        "n": 517,
+        "wins": 507,
+        "rate": 0.9806576402321083,
+        "lower95": 0.9679080186527477
+      },
+      "18": {
+        "n": 517,
+        "wins": 514,
+        "rate": 0.9941972920696325,
+        "lower95": 0.9855704396304515
+      },
+      "19": {
+        "n": 517,
+        "wins": 516,
+        "rate": 0.9980657640232108,
+        "lower95": 0.9913773822328174
+      },
+      "20": {
+        "n": 517,
+        "wins": 517,
+        "rate": 1.0,
+        "lower95": 0.994794083903524
+      },
+      "21": {
+        "n": 517,
+        "wins": 517,
+        "rate": 1.0,
+        "lower95": 0.994794083903524
+      }
+    },
+    "complete_days": 517,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "488592b21526cb0d44a407b2fb081e5c1a722dd3fd048a7c884e39566a72e069",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "manila": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 393,
+      "wins": 393,
+      "rate": 1.0,
+      "lower95": 0.9931627355268293
+    },
+    "validation": {
+      "n": 83,
+      "wins": 83,
+      "rate": 1.0,
+      "lower95": 0.9684321066636192
+    },
+    "weather_lower95": 0.9684321066636192,
+    "baseline": {
+      "17": {
+        "n": 499,
+        "wins": 496,
+        "rate": 0.9939879759519038,
+        "lower95": 0.9850532795304368
+      },
+      "18": {
+        "n": 499,
+        "wins": 497,
+        "rate": 0.9959919839679359,
+        "lower95": 0.9879617354014628
+      },
+      "19": {
+        "n": 499,
+        "wins": 498,
+        "rate": 0.9979959919839679,
+        "lower95": 0.9910681116325517
+      },
+      "20": {
+        "n": 499,
+        "wins": 498,
+        "rate": 0.9979959919839679,
+        "lower95": 0.9910681116325517
+      },
+      "21": {
+        "n": 499,
+        "wins": 498,
+        "rate": 0.9979959919839679,
+        "lower95": 0.9910681116325517
+      }
+    },
+    "complete_days": 499,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "92e97d7f4bcf312ef54fb43a21772f8ba3b346c7bb9856aa023f709c1c0c84b1",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "mexicocity": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 373,
+      "wins": 373,
+      "rate": 1.0,
+      "lower95": 0.9927987662113746
+    },
+    "validation": {
+      "n": 84,
+      "wins": 84,
+      "rate": 1.0,
+      "lower95": 0.9687961882676184
+    },
+    "weather_lower95": 0.9687961882676184,
+    "baseline": {
+      "17": {
+        "n": 458,
+        "wins": 458,
+        "rate": 1.0,
+        "lower95": 0.9941273911448713
+      },
+      "18": {
+        "n": 458,
+        "wins": 458,
+        "rate": 1.0,
+        "lower95": 0.9941273911448713
+      },
+      "19": {
+        "n": 458,
+        "wins": 458,
+        "rate": 1.0,
+        "lower95": 0.9941273911448713
+      },
+      "20": {
+        "n": 458,
+        "wins": 458,
+        "rate": 1.0,
+        "lower95": 0.9941273911448713
+      },
+      "21": {
+        "n": 458,
+        "wins": 458,
+        "rate": 1.0,
+        "lower95": 0.9941273911448713
+      }
+    },
+    "complete_days": 458,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "957871f9a0fd681ea4c8466667ffbb78cabe0f04b98340d6ef76302e84e21604",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "warsaw": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 385,
+      "wins": 385,
+      "rate": 1.0,
+      "lower95": 0.9930216539335714
+    },
+    "validation": {
+      "n": 86,
+      "wins": 86,
+      "rate": 1.0,
+      "lower95": 0.9694997251722435
+    },
+    "weather_lower95": 0.9694997251722435,
+    "baseline": {
+      "17": {
+        "n": 540,
+        "wins": 500,
+        "rate": 0.9259259259259259,
+        "lower95": 0.9051897940493935
+      },
+      "18": {
+        "n": 540,
+        "wins": 525,
+        "rate": 0.9722222222222222,
+        "lower95": 0.9580284791435287
+      },
+      "19": {
+        "n": 540,
+        "wins": 529,
+        "rate": 0.9796296296296296,
+        "lower95": 0.9669817922466949
+      },
+      "20": {
+        "n": 540,
+        "wins": 531,
+        "rate": 0.9833333333333333,
+        "lower95": 0.9715691373534037
+      },
+      "21": {
+        "n": 540,
+        "wins": 534,
+        "rate": 0.9888888888888889,
+        "lower95": 0.9786595372019485
+      }
+    },
+    "complete_days": 540,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "463c021906a80d192ef9cd6b776b409f77a0d608b5ba7815a36516bd9f4b1853",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "milan": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 417,
+      "wins": 417,
+      "rate": 1.0,
+      "lower95": 0.9935537104613169
+    },
+    "validation": {
+      "n": 85,
+      "wins": 85,
+      "rate": 1.0,
+      "lower95": 0.9691519675091977
+    },
+    "weather_lower95": 0.9691519675091977,
+    "baseline": {
+      "17": {
+        "n": 526,
+        "wins": 494,
+        "rate": 0.9391634980988594,
+        "lower95": 0.9196700253343003
+      },
+      "18": {
+        "n": 526,
+        "wins": 517,
+        "rate": 0.9828897338403042,
+        "lower95": 0.9708183070396832
+      },
+      "19": {
+        "n": 526,
+        "wins": 523,
+        "rate": 0.9942965779467681,
+        "lower95": 0.9858158276045698
+      },
+      "20": {
+        "n": 526,
+        "wins": 525,
+        "rate": 0.9980988593155894,
+        "lower95": 0.9915241227516413
+      },
+      "21": {
+        "n": 526,
+        "wins": 526,
+        "rate": 1.0,
+        "lower95": 0.9948827026922779
+      }
+    },
+    "complete_days": 526,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "fe240ffc57939528351676ed1c712bf814796fb5f8165f6864c6e57b7d03b551",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "amsterdam": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 390,
+      "wins": 389,
+      "rate": 0.9974358974358974,
+      "lower95": 0.9885898684964832
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "weather_lower95": 0.9714320476350278,
+    "baseline": {
+      "17": {
+        "n": 541,
+        "wins": 499,
+        "rate": 0.922365988909427,
+        "lower95": 0.9012710327183349
+      },
+      "18": {
+        "n": 541,
+        "wins": 516,
+        "rate": 0.9537892791127541,
+        "lower95": 0.9365504172180019
+      },
+      "19": {
+        "n": 541,
+        "wins": 522,
+        "rate": 0.9648798521256932,
+        "lower95": 0.9493765694825489
+      },
+      "20": {
+        "n": 541,
+        "wins": 526,
+        "rate": 0.9722735674676525,
+        "lower95": 0.9581053762323196
+      },
+      "21": {
+        "n": 541,
+        "wins": 528,
+        "rate": 0.9759704251386322,
+        "lower95": 0.9625425349569156
+      }
+    },
+    "complete_days": 541,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "b8b8950822066f279e5ce69d0aa8fe006b531a85e2c03ca3be26c643ab701f1d",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "panama": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 289,
+      "wins": 289,
+      "rate": 1.0,
+      "lower95": 0.9907250872847359
+    },
+    "validation": {
+      "n": 55,
+      "wins": 55,
+      "rate": 1.0,
+      "lower95": 0.9531146698887315
+    },
+    "weather_lower95": 0.9531146698887315,
+    "baseline": {
+      "17": {
+        "n": 349,
+        "wins": 348,
+        "rate": 0.997134670487106,
+        "lower95": 0.9872602792819447
+      },
+      "18": {
+        "n": 349,
+        "wins": 349,
+        "rate": 1.0,
+        "lower95": 0.9923073619268997
+      },
+      "19": {
+        "n": 349,
+        "wins": 349,
+        "rate": 1.0,
+        "lower95": 0.9923073619268997
+      },
+      "20": {
+        "n": 349,
+        "wins": 349,
+        "rate": 1.0,
+        "lower95": 0.9923073619268997
+      },
+      "21": {
+        "n": 349,
+        "wins": 349,
+        "rate": 1.0,
+        "lower95": 0.9923073619268997
+      }
+    },
+    "complete_days": 349,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-27",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "6e298c4aac91d7cad913527873a58f0f56623a768d1c6a40b6666dc443bad2a4",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "jeddah": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 417,
+      "wins": 416,
+      "rate": 0.9976019184652278,
+      "lower95": 0.9893236401151065
+    },
+    "validation": {
+      "n": 85,
+      "wins": 85,
+      "rate": 1.0,
+      "lower95": 0.9691519675091977
+    },
+    "weather_lower95": 0.9691519675091977,
+    "baseline": {
+      "17": {
+        "n": 507,
+        "wins": 495,
+        "rate": 0.9763313609467456,
+        "lower95": 0.9624427962837798
+      },
+      "18": {
+        "n": 507,
+        "wins": 505,
+        "rate": 0.9960552268244576,
+        "lower95": 0.9881505550776883
+      },
+      "19": {
+        "n": 507,
+        "wins": 506,
+        "rate": 0.9980276134122288,
+        "lower95": 0.9912082611954014
+      },
+      "20": {
+        "n": 507,
+        "wins": 506,
+        "rate": 0.9980276134122288,
+        "lower95": 0.9912082611954014
+      },
+      "21": {
+        "n": 507,
+        "wins": 506,
+        "rate": 0.9980276134122288,
+        "lower95": 0.9912082611954014
+      }
+    },
+    "complete_days": 507,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "6a3a669ecd503b7937cca29e6ec5a53a6b2bf652923ebc8b45700b73bbf6ce4b",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "denver": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 347,
+      "wins": 347,
+      "rate": 1.0,
+      "lower95": 0.992263366981912
+    },
+    "validation": {
+      "n": 73,
+      "wins": 73,
+      "rate": 1.0,
+      "lower95": 0.9642622807967034
+    },
+    "weather_lower95": 0.9642622807967034,
+    "baseline": {
+      "17": {
+        "n": 421,
+        "wins": 412,
+        "rate": 0.9786223277909739,
+        "lower95": 0.9636108690996203
+      },
+      "18": {
+        "n": 421,
+        "wins": 420,
+        "rate": 0.997624703087886,
+        "lower95": 0.9894243963055804
+      },
+      "19": {
+        "n": 421,
+        "wins": 421,
+        "rate": 1.0,
+        "lower95": 0.9936145667766356
+      },
+      "20": {
+        "n": 421,
+        "wins": 421,
+        "rate": 1.0,
+        "lower95": 0.9936145667766356
+      },
+      "21": {
+        "n": 421,
+        "wins": 421,
+        "rate": 1.0,
+        "lower95": 0.9936145667766356
+      }
+    },
+    "complete_days": 421,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-29",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "786af1ea634ad9b0d2051de99e68237e2d2a8df25a19db8a7831306b08df6cb3",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "houston": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 374,
+      "wins": 374,
+      "rate": 1.0,
+      "lower95": 0.9928178825581176
+    },
+    "validation": {
+      "n": 86,
+      "wins": 86,
+      "rate": 1.0,
+      "lower95": 0.9694997251722435
+    },
+    "weather_lower95": 0.9694997251722435,
+    "baseline": {
+      "17": {
+        "n": 472,
+        "wins": 460,
+        "rate": 0.9745762711864406,
+        "lower95": 0.9596840763752971
+      },
+      "18": {
+        "n": 472,
+        "wins": 469,
+        "rate": 0.9936440677966102,
+        "lower95": 0.9842040840669757
+      },
+      "19": {
+        "n": 472,
+        "wins": 471,
+        "rate": 0.9978813559322034,
+        "lower95": 0.9905602428544158
+      },
+      "20": {
+        "n": 472,
+        "wins": 471,
+        "rate": 0.9978813559322034,
+        "lower95": 0.9905602428544158
+      },
+      "21": {
+        "n": 472,
+        "wins": 471,
+        "rate": 0.9978813559322034,
+        "lower95": 0.9905602428544158
+      }
+    },
+    "complete_days": 472,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "bfa545690a8e59ddd8d3bec7b1a4088fdd5cb68e37dfdbe606484a9c67b99d2d",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "sanfrancisco": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 370,
+      "wins": 370,
+      "rate": 1.0,
+      "lower95": 0.9927408016821498
+    },
+    "validation": {
+      "n": 91,
+      "wins": 91,
+      "rate": 1.0,
+      "lower95": 0.9711271782397718
+    },
+    "weather_lower95": 0.9711271782397718,
+    "baseline": {
+      "17": {
+        "n": 487,
+        "wins": 482,
+        "rate": 0.9897330595482546,
+        "lower95": 0.9790610857604033
+      },
+      "18": {
+        "n": 487,
+        "wins": 484,
+        "rate": 0.9938398357289527,
+        "lower95": 0.9846874075336539
+      },
+      "19": {
+        "n": 487,
+        "wins": 485,
+        "rate": 0.9958932238193019,
+        "lower95": 0.9876669465644196
+      },
+      "20": {
+        "n": 487,
+        "wins": 485,
+        "rate": 0.9958932238193019,
+        "lower95": 0.9876669465644196
+      },
+      "21": {
+        "n": 487,
+        "wins": 486,
+        "rate": 0.997946611909651,
+        "lower95": 0.9908493040722982
+      }
+    },
+    "complete_days": 487,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "2037175f36ed27e7592d67e620ec4333029a2004be94be58f25d360d2dfacea2",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "seattle": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 328,
+      "wins": 328,
+      "rate": 1.0,
+      "lower95": 0.9918188748037392
+    },
+    "validation": {
+      "n": 87,
+      "wins": 87,
+      "rate": 1.0,
+      "lower95": 0.9698397295203957
+    },
+    "weather_lower95": 0.9698397295203957,
+    "baseline": {
+      "17": {
+        "n": 479,
+        "wins": 422,
+        "rate": 0.8810020876826722,
+        "lower95": 0.8545021819957329
+      },
+      "18": {
+        "n": 479,
+        "wins": 465,
+        "rate": 0.9707724425887265,
+        "lower95": 0.9552305252071738
+      },
+      "19": {
+        "n": 479,
+        "wins": 470,
+        "rate": 0.9812108559498957,
+        "lower95": 0.9679794131342654
+      },
+      "20": {
+        "n": 479,
+        "wins": 472,
+        "rate": 0.9853862212943633,
+        "lower95": 0.973262537604507
+      },
+      "21": {
+        "n": 479,
+        "wins": 474,
+        "rate": 0.9895615866388309,
+        "lower95": 0.9787139566860404
+      }
+    },
+    "complete_days": 479,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "31b5d7815870a45f6c8ac58b9649c7b3c896fa196ec52311fa508974e8cfe665",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "chengdu": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 383,
+      "wins": 381,
+      "rate": 0.9947780678851175,
+      "lower95": 0.984344426559404
+    },
+    "validation": {
+      "n": 89,
+      "wins": 89,
+      "rate": 1.0,
+      "lower95": 0.9704974928211433
+    },
+    "weather_lower95": 0.9704974928211433,
+    "baseline": {
+      "17": {
+        "n": 517,
+        "wins": 465,
+        "rate": 0.8994197292069632,
+        "lower95": 0.8755396715398627
+      },
+      "18": {
+        "n": 517,
+        "wins": 507,
+        "rate": 0.9806576402321083,
+        "lower95": 0.9679080186527477
+      },
+      "19": {
+        "n": 517,
+        "wins": 516,
+        "rate": 0.9980657640232108,
+        "lower95": 0.9913773822328174
+      },
+      "20": {
+        "n": 517,
+        "wins": 517,
+        "rate": 1.0,
+        "lower95": 0.994794083903524
+      },
+      "21": {
+        "n": 517,
+        "wins": 517,
+        "rate": 1.0,
+        "lower95": 0.994794083903524
+      }
+    },
+    "complete_days": 517,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "8777fc5a0138a2a53d300a35eecd5798e5d7b7162a0407a3c501b0672b5993d8",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "buenosaires": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 408,
+      "wins": 408,
+      "rate": 1.0,
+      "lower95": 0.9934124496315744
+    },
+    "validation": {
+      "n": 87,
+      "wins": 87,
+      "rate": 1.0,
+      "lower95": 0.9698397295203957
+    },
+    "weather_lower95": 0.9698397295203957,
+    "baseline": {
+      "17": {
+        "n": 509,
+        "wins": 489,
+        "rate": 0.9607072691552063,
+        "lower95": 0.9439352921053871
+      },
+      "18": {
+        "n": 509,
+        "wins": 504,
+        "rate": 0.9901768172888016,
+        "lower95": 0.9799598190239606
+      },
+      "19": {
+        "n": 509,
+        "wins": 506,
+        "rate": 0.9941060903732809,
+        "lower95": 0.9853450779045911
+      },
+      "20": {
+        "n": 509,
+        "wins": 507,
+        "rate": 0.9960707269155207,
+        "lower95": 0.9881968381068205
+      },
+      "21": {
+        "n": 509,
+        "wins": 508,
+        "rate": 0.9980353634577603,
+        "lower95": 0.9912426140612531
+      }
+    },
+    "complete_days": 509,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "2c0b63fbba3950593e96a1cffaa825c059efbb35f9eefbdf77b0aa0ca295904d",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "madrid": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 408,
+      "wins": 408,
+      "rate": 1.0,
+      "lower95": 0.9934124496315744
+    },
+    "validation": {
+      "n": 85,
+      "wins": 85,
+      "rate": 1.0,
+      "lower95": 0.9691519675091977
+    },
+    "weather_lower95": 0.9691519675091977,
+    "baseline": {
+      "17": {
+        "n": 544,
+        "wins": 352,
+        "rate": 0.6470588235294118,
+        "lower95": 0.6127050495460191
+      },
+      "18": {
+        "n": 544,
+        "wins": 462,
+        "rate": 0.8492647058823529,
+        "lower95": 0.8223071960300108
+      },
+      "19": {
+        "n": 544,
+        "wins": 529,
+        "rate": 0.9724264705882353,
+        "lower95": 0.9583343862206046
+      },
+      "20": {
+        "n": 544,
+        "wins": 540,
+        "rate": 0.9926470588235294,
+        "lower95": 0.9837233100980669
+      },
+      "21": {
+        "n": 544,
+        "wins": 543,
+        "rate": 0.9981617647058824,
+        "lower95": 0.9918031135402148
+      }
+    },
+    "complete_days": 544,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "620555d2564f3c72151b96dc81dcca979aa059fdde0b378b6dbab8476fcd7d02",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "kualalumpur": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 442,
+      "wins": 442,
+      "rate": 1.0,
+      "lower95": 0.9939161013530864
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "weather_lower95": 0.9714320476350278,
+    "baseline": {
+      "17": {
+        "n": 539,
+        "wins": 532,
+        "rate": 0.987012987012987,
+        "lower95": 0.9762177336419818
+      },
+      "18": {
+        "n": 539,
+        "wins": 538,
+        "rate": 0.9981447124304267,
+        "lower95": 0.991727475409457
+      },
+      "19": {
+        "n": 539,
+        "wins": 539,
+        "rate": 1.0,
+        "lower95": 0.9950055090135428
+      },
+      "20": {
+        "n": 539,
+        "wins": 539,
+        "rate": 1.0,
+        "lower95": 0.9950055090135428
+      },
+      "21": {
+        "n": 539,
+        "wins": 539,
+        "rate": 1.0,
+        "lower95": 0.9950055090135428
+      }
+    },
+    "complete_days": 539,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "7f5654deafad5306803576814ad5ca5242199295d870e61569371b9bb097bb33",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "paris": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 389,
+      "wins": 389,
+      "rate": 1.0,
+      "lower95": 0.9930929150753455
+    },
+    "validation": {
+      "n": 89,
+      "wins": 89,
+      "rate": 1.0,
+      "lower95": 0.9704974928211433
+    },
+    "weather_lower95": 0.9704974928211433,
+    "baseline": {
+      "17": {
+        "n": 534,
+        "wins": 443,
+        "rate": 0.8295880149812734,
+        "lower95": 0.8011792517572307
+      },
+      "18": {
+        "n": 534,
+        "wins": 505,
+        "rate": 0.9456928838951311,
+        "lower95": 0.9271997884615552
+      },
+      "19": {
+        "n": 534,
+        "wins": 522,
+        "rate": 0.9775280898876404,
+        "lower95": 0.9643259339699245
+      },
+      "20": {
+        "n": 534,
+        "wins": 525,
+        "rate": 0.9831460674157303,
+        "lower95": 0.9712521365938447
+      },
+      "21": {
+        "n": 534,
+        "wins": 528,
+        "rate": 0.9887640449438202,
+        "lower95": 0.9784214119379736
+      }
+    },
+    "complete_days": 534,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "cbd6d724e0137341cc584060ec5e6c25b3ee058d9bfc0272dd6b99d3d3c37a53",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "wuhan": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 387,
+      "wins": 387,
+      "rate": 1.0,
+      "lower95": 0.9930574673633963
+    },
+    "validation": {
+      "n": 89,
+      "wins": 89,
+      "rate": 1.0,
+      "lower95": 0.9704974928211433
+    },
+    "weather_lower95": 0.9704974928211433,
+    "baseline": {
+      "17": {
+        "n": 522,
+        "wins": 494,
+        "rate": 0.946360153256705,
+        "lower95": 0.9277170741754669
+      },
+      "18": {
+        "n": 522,
+        "wins": 515,
+        "rate": 0.9865900383141762,
+        "lower95": 0.9754488941150058
+      },
+      "19": {
+        "n": 522,
+        "wins": 522,
+        "rate": 1.0,
+        "lower95": 0.9948436918804305
+      },
+      "20": {
+        "n": 522,
+        "wins": 522,
+        "rate": 1.0,
+        "lower95": 0.9948436918804305
+      },
+      "21": {
+        "n": 522,
+        "wins": 522,
+        "rate": 1.0,
+        "lower95": 0.9948436918804305
+      }
+    },
+    "complete_days": 522,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "6ef66f5a131c1b0c408e6f18aec0a08991cef6e3f4618034be0524398622c2b2",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "losangeles": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 365,
+      "wins": 365,
+      "rate": 1.0,
+      "lower95": 0.9926420922875393
+    },
+    "validation": {
+      "n": 86,
+      "wins": 86,
+      "rate": 1.0,
+      "lower95": 0.9694997251722435
+    },
+    "weather_lower95": 0.9694997251722435,
+    "baseline": {
+      "17": {
+        "n": 473,
+        "wins": 470,
+        "rate": 0.9936575052854123,
+        "lower95": 0.9842372528621343
+      },
+      "18": {
+        "n": 473,
+        "wins": 470,
+        "rate": 0.9936575052854123,
+        "lower95": 0.9842372528621343
+      },
+      "19": {
+        "n": 473,
+        "wins": 470,
+        "rate": 0.9936575052854123,
+        "lower95": 0.9842372528621343
+      },
+      "20": {
+        "n": 473,
+        "wins": 470,
+        "rate": 0.9936575052854123,
+        "lower95": 0.9842372528621343
+      },
+      "21": {
+        "n": 473,
+        "wins": 471,
+        "rate": 0.9957716701902748,
+        "lower95": 0.9873042424804359
+      }
+    },
+    "complete_days": 473,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-30",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "dc46355699cab6fff540296201bd59cba629314eca7c33be98cc3e69d64ca32b",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "singapore": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 441,
+      "wins": 441,
+      "rate": 1.0,
+      "lower95": 0.9939023897852758
+    },
+    "validation": {
+      "n": 88,
+      "wins": 88,
+      "rate": 1.0,
+      "lower95": 0.9701722369872064
+    },
+    "weather_lower95": 0.9701722369872064,
+    "baseline": {
+      "17": {
+        "n": 548,
+        "wins": 540,
+        "rate": 0.9854014598540146,
+        "lower95": 0.9742782951968479
+      },
+      "18": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      },
+      "19": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      },
+      "20": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      },
+      "21": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      }
+    },
+    "complete_days": 548,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "c7e921e9ac9050ec728ae54d859a134689790e04ec564a58e953873dff7349a9",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "beijing": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 447,
+      "wins": 447,
+      "rate": 1.0,
+      "lower95": 0.9939837444890834
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "weather_lower95": 0.9717305460431025,
+    "baseline": {
+      "17": {
+        "n": 548,
+        "wins": 540,
+        "rate": 0.9854014598540146,
+        "lower95": 0.9742782951968479
+      },
+      "18": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      },
+      "19": {
+        "n": 548,
+        "wins": 548,
+        "rate": 1.0,
+        "lower95": 0.9950871323409495
+      },
+      "20": {
+        "n": 548,
+        "wins": 548,
+        "rate": 1.0,
+        "lower95": 0.9950871323409495
+      },
+      "21": {
+        "n": 548,
+        "wins": 548,
+        "rate": 1.0,
+        "lower95": 0.9950871323409495
+      }
+    },
+    "complete_days": 548,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "67dc5c1792856de2b1cc047f93ed2aa7e3d6c6a29513d771ec983a1493141b20",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "helsinki": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 362,
+      "wins": 362,
+      "rate": 1.0,
+      "lower95": 0.9925815675065659
+    },
+    "validation": {
+      "n": 86,
+      "wins": 86,
+      "rate": 1.0,
+      "lower95": 0.9694997251722435
+    },
+    "weather_lower95": 0.9694997251722435,
+    "baseline": {
+      "17": {
+        "n": 544,
+        "wins": 493,
+        "rate": 0.90625,
+        "lower95": 0.8836362024258897
+      },
+      "18": {
+        "n": 544,
+        "wins": 516,
+        "rate": 0.9485294117647058,
+        "lower95": 0.9306082961069403
+      },
+      "19": {
+        "n": 544,
+        "wins": 523,
+        "rate": 0.9613970588235294,
+        "lower95": 0.9453704074674201
+      },
+      "20": {
+        "n": 544,
+        "wins": 527,
+        "rate": 0.96875,
+        "lower95": 0.9539723610349865
+      },
+      "21": {
+        "n": 544,
+        "wins": 531,
+        "rate": 0.9761029411764706,
+        "lower95": 0.9627473707177855
+      }
+    },
+    "complete_days": 544,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "e087d8b7d3b355174b05a4a467a9ff969438efc33199c3345f301144e929a757",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "karachi": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 449,
+      "wins": 448,
+      "rate": 0.9977728285077951,
+      "lower95": 0.9900797408189893
+    },
+    "validation": {
+      "n": 91,
+      "wins": 91,
+      "rate": 1.0,
+      "lower95": 0.9711271782397718
+    },
+    "weather_lower95": 0.9711271782397718,
+    "baseline": {
+      "17": {
+        "n": 543,
+        "wins": 541,
+        "rate": 0.996316758747698,
+        "lower95": 0.9889317761851358
+      },
+      "18": {
+        "n": 543,
+        "wins": 542,
+        "rate": 0.998158379373849,
+        "lower95": 0.9917880967696959
+      },
+      "19": {
+        "n": 543,
+        "wins": 542,
+        "rate": 0.998158379373849,
+        "lower95": 0.9917880967696959
+      },
+      "20": {
+        "n": 543,
+        "wins": 542,
+        "rate": 0.998158379373849,
+        "lower95": 0.9917880967696959
+      },
+      "21": {
+        "n": 543,
+        "wins": 542,
+        "rate": 0.998158379373849,
+        "lower95": 0.9917880967696959
+      }
+    },
+    "complete_days": 543,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "39183f2a385686ef7fde284ef76ed502769deb50003137b1d4e15e699ba047ec",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "chongqing": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 354,
+      "wins": 354,
+      "rate": 1.0,
+      "lower95": 0.9924151908941565
+    },
+    "validation": {
+      "n": 86,
+      "wins": 86,
+      "rate": 1.0,
+      "lower95": 0.9694997251722435
+    },
+    "weather_lower95": 0.9694997251722435,
+    "baseline": {
+      "17": {
+        "n": 522,
+        "wins": 490,
+        "rate": 0.9386973180076629,
+        "lower95": 0.9190618624795214
+      },
+      "18": {
+        "n": 522,
+        "wins": 519,
+        "rate": 0.9942528735632183,
+        "lower95": 0.9857078045046542
+      },
+      "19": {
+        "n": 522,
+        "wins": 522,
+        "rate": 1.0,
+        "lower95": 0.9948436918804305
+      },
+      "20": {
+        "n": 522,
+        "wins": 522,
+        "rate": 1.0,
+        "lower95": 0.9948436918804305
+      },
+      "21": {
+        "n": 522,
+        "wins": 522,
+        "rate": 1.0,
+        "lower95": 0.9948436918804305
+      }
+    },
+    "complete_days": 522,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "7c3f5b22cb8bfaebc9d9bf72f371053c27b17db60cf53d608eaef8c060f7f47a",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "seoul": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 418,
+      "wins": 418,
+      "rate": 1.0,
+      "lower95": 0.99356903302989
+    },
+    "validation": {
+      "n": 86,
+      "wins": 86,
+      "rate": 1.0,
+      "lower95": 0.9694997251722435
+    },
+    "weather_lower95": 0.9694997251722435,
+    "baseline": {
+      "17": {
+        "n": 546,
+        "wins": 532,
+        "rate": 0.9743589743589743,
+        "lower95": 0.9606772200130168
+      },
+      "18": {
+        "n": 546,
+        "wins": 537,
+        "rate": 0.9835164835164835,
+        "lower95": 0.9718792234751146
+      },
+      "19": {
+        "n": 546,
+        "wins": 539,
+        "rate": 0.9871794871794872,
+        "lower95": 0.9765204968423411
+      },
+      "20": {
+        "n": 546,
+        "wins": 541,
+        "rate": 0.9908424908424909,
+        "lower95": 0.9813090544106152
+      },
+      "21": {
+        "n": 546,
+        "wins": 544,
+        "rate": 0.9963369963369964,
+        "lower95": 0.9889922536057284
+      }
+    },
+    "complete_days": 546,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "9158289b8a4c96dcf3f45502b3043b251b43a79892b9fc1e14177486f2fdf544",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "austin": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 376,
+      "wins": 376,
+      "rate": 1.0,
+      "lower95": 0.9928558123828377
+    },
+    "validation": {
+      "n": 87,
+      "wins": 87,
+      "rate": 1.0,
+      "lower95": 0.9698397295203957
+    },
+    "weather_lower95": 0.9698397295203957,
+    "baseline": {
+      "17": {
+        "n": 470,
+        "wins": 447,
+        "rate": 0.951063829787234,
+        "lower95": 0.9319580440426523
+      },
+      "18": {
+        "n": 470,
+        "wins": 468,
+        "rate": 0.9957446808510638,
+        "lower95": 0.9872237270432508
+      },
+      "19": {
+        "n": 470,
+        "wins": 469,
+        "rate": 0.997872340425532,
+        "lower95": 0.9905203157067954
+      },
+      "20": {
+        "n": 470,
+        "wins": 470,
+        "rate": 1.0,
+        "lower95": 0.9942764719145754
+      },
+      "21": {
+        "n": 470,
+        "wins": 470,
+        "rate": 1.0,
+        "lower95": 0.9942764719145754
+      }
+    },
+    "complete_days": 470,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "a783c0a1b793074393d11c04e9e800362a96c832bf7b34a83efbc6e7cfe60602",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "dallas": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 376,
+      "wins": 376,
+      "rate": 1.0,
+      "lower95": 0.9928558123828377
+    },
+    "validation": {
+      "n": 88,
+      "wins": 88,
+      "rate": 1.0,
+      "lower95": 0.9701722369872064
+    },
+    "weather_lower95": 0.9701722369872064,
+    "baseline": {
+      "17": {
+        "n": 484,
+        "wins": 450,
+        "rate": 0.9297520661157025,
+        "lower95": 0.9081595832337805
+      },
+      "18": {
+        "n": 484,
+        "wins": 479,
+        "rate": 0.9896694214876033,
+        "lower95": 0.9789322472767354
+      },
+      "19": {
+        "n": 484,
+        "wins": 481,
+        "rate": 0.993801652892562,
+        "lower95": 0.9845931235865205
+      },
+      "20": {
+        "n": 484,
+        "wins": 482,
+        "rate": 0.9958677685950413,
+        "lower95": 0.987590979631618
+      },
+      "21": {
+        "n": 484,
+        "wins": 482,
+        "rate": 0.9958677685950413,
+        "lower95": 0.987590979631618
+      }
+    },
+    "complete_days": 484,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "29477f7eda7852550c18b824a0584b2069a481befadfb5a6a70892008ae8ee13",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "nyc": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 312,
+      "wins": 311,
+      "rate": 0.9967948717948718,
+      "lower95": 0.9857631539828008
+    },
+    "validation": {
+      "n": 78,
+      "wins": 78,
+      "rate": 1.0,
+      "lower95": 0.9664763616190218
+    },
+    "weather_lower95": 0.9664763616190218,
+    "baseline": {
+      "17": {
+        "n": 505,
+        "wins": 448,
+        "rate": 0.8871287128712871,
+        "lower95": 0.8618740793681865
+      },
+      "18": {
+        "n": 505,
+        "wins": 474,
+        "rate": 0.9386138613861386,
+        "lower95": 0.9185986452389301
+      },
+      "19": {
+        "n": 505,
+        "wins": 484,
+        "rate": 0.9584158415841584,
+        "lower95": 0.9411961890373628
+      },
+      "20": {
+        "n": 505,
+        "wins": 486,
+        "rate": 0.9623762376237623,
+        "lower95": 0.9458046863216627
+      },
+      "21": {
+        "n": 505,
+        "wins": 491,
+        "rate": 0.9722772277227723,
+        "lower95": 0.9575141737391654
+      }
+    },
+    "complete_days": 505,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "2b50445f57073927a0a6cda89d2ffa15c07af274fa8e6a46ae1ba58d5374b910",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "chicago": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 374,
+      "wins": 374,
+      "rate": 1.0,
+      "lower95": 0.9928178825581176
+    },
+    "validation": {
+      "n": 86,
+      "wins": 86,
+      "rate": 1.0,
+      "lower95": 0.9694997251722435
+    },
+    "weather_lower95": 0.9694997251722435,
+    "baseline": {
+      "17": {
+        "n": 516,
+        "wins": 476,
+        "rate": 0.9224806201550387,
+        "lower95": 0.9008386316170008
+      },
+      "18": {
+        "n": 516,
+        "wins": 494,
+        "rate": 0.9573643410852714,
+        "lower95": 0.9401937899131367
+      },
+      "19": {
+        "n": 516,
+        "wins": 497,
+        "rate": 0.9631782945736435,
+        "lower95": 0.9469484389706736
+      },
+      "20": {
+        "n": 516,
+        "wins": 499,
+        "rate": 0.9670542635658915,
+        "lower95": 0.9514988079254294
+      },
+      "21": {
+        "n": 516,
+        "wins": 500,
+        "rate": 0.9689922480620154,
+        "lower95": 0.9537904582455725
+      }
+    },
+    "complete_days": 516,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "eba92b2dd120a34c810ef9c7a25f2bb2410624ef4b85edfe1d13f4206f11be81",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "london": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 385,
+      "wins": 385,
+      "rate": 1.0,
+      "lower95": 0.9930216539335714
+    },
+    "validation": {
+      "n": 88,
+      "wins": 88,
+      "rate": 1.0,
+      "lower95": 0.9701722369872064
+    },
+    "weather_lower95": 0.9701722369872064,
+    "baseline": {
+      "17": {
+        "n": 540,
+        "wins": 499,
+        "rate": 0.924074074074074,
+        "lower95": 0.9031385919826905
+      },
+      "18": {
+        "n": 540,
+        "wins": 517,
+        "rate": 0.9574074074074074,
+        "lower95": 0.9406878410879913
+      },
+      "19": {
+        "n": 540,
+        "wins": 529,
+        "rate": 0.9796296296296296,
+        "lower95": 0.9669817922466949
+      },
+      "20": {
+        "n": 540,
+        "wins": 530,
+        "rate": 0.9814814814814815,
+        "lower95": 0.9692642298253102
+      },
+      "21": {
+        "n": 540,
+        "wins": 534,
+        "rate": 0.9888888888888889,
+        "lower95": 0.9786595372019485
+      }
+    },
+    "complete_days": 540,
+    "first_day": "2025-03-01",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "b93a77e0047b22c27ef6848051172cfddeae57bbc6d29728a558f10b9169460e",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "wellington": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 383,
+      "wins": 383,
+      "rate": 1.0,
+      "lower95": 0.9929854690967972
+    },
+    "validation": {
+      "n": 60,
+      "wins": 59,
+      "rate": 0.9833333333333333,
+      "lower95": 0.928685122861948
+    },
+    "weather_lower95": 0.928685122861948,
+    "baseline": {
+      "17": {
+        "n": 544,
+        "wins": 523,
+        "rate": 0.9613970588235294,
+        "lower95": 0.9453704074674201
+      },
+      "18": {
+        "n": 544,
+        "wins": 527,
+        "rate": 0.96875,
+        "lower95": 0.9539723610349865
+      },
+      "19": {
+        "n": 544,
+        "wins": 530,
+        "rate": 0.9742647058823529,
+        "lower95": 0.9605338911201388
+      },
+      "20": {
+        "n": 544,
+        "wins": 536,
+        "rate": 0.9852941176470589,
+        "lower95": 0.9740905425431271
+      },
+      "21": {
+        "n": 544,
+        "wins": 539,
+        "rate": 0.9908088235294118,
+        "lower95": 0.9812407844856301
+      }
+    },
+    "complete_days": 544,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "4f4fd2f6b7d90c8837d5765936c9b61ccc106cd31f6c2ee61358ff81ba20bf2c",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "miami": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 378,
+      "wins": 378,
+      "rate": 1.0,
+      "lower95": 0.9928933436861772
+    },
+    "validation": {
+      "n": 89,
+      "wins": 89,
+      "rate": 1.0,
+      "lower95": 0.9704974928211433
+    },
+    "weather_lower95": 0.9704974928211433,
+    "baseline": {
+      "17": {
+        "n": 480,
+        "wins": 479,
+        "rate": 0.9979166666666667,
+        "lower95": 0.9907166438213261
+      },
+      "18": {
+        "n": 480,
+        "wins": 480,
+        "rate": 1.0,
+        "lower95": 0.994395043747094
+      },
+      "19": {
+        "n": 480,
+        "wins": 480,
+        "rate": 1.0,
+        "lower95": 0.994395043747094
+      },
+      "20": {
+        "n": 480,
+        "wins": 480,
+        "rate": 1.0,
+        "lower95": 0.994395043747094
+      },
+      "21": {
+        "n": 480,
+        "wins": 480,
+        "rate": 1.0,
+        "lower95": 0.994395043747094
+      }
+    },
+    "complete_days": 480,
+    "first_day": "2025-02-28",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "79f2e230ff3ec119029b6f856554a658a6e51b0776d76e3429007a36649f0dee",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "telaviv": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 445,
+      "wins": 445,
+      "rate": 1.0,
+      "lower95": 0.9939568685408229
+    },
+    "validation": {
+      "n": 93,
+      "wins": 93,
+      "rate": 1.0,
+      "lower95": 0.9717305460431025
+    },
+    "weather_lower95": 0.9717305460431025,
+    "baseline": {
+      "17": {
+        "n": 541,
+        "wins": 539,
+        "rate": 0.9963031423290203,
+        "lower95": 0.9888910873626796
+      },
+      "18": {
+        "n": 541,
+        "wins": 541,
+        "rate": 1.0,
+        "lower95": 0.995023881057185
+      },
+      "19": {
+        "n": 541,
+        "wins": 541,
+        "rate": 1.0,
+        "lower95": 0.995023881057185
+      },
+      "20": {
+        "n": 541,
+        "wins": 541,
+        "rate": 1.0,
+        "lower95": 0.995023881057185
+      },
+      "21": {
+        "n": 541,
+        "wins": 541,
+        "rate": 1.0,
+        "lower95": 0.995023881057185
+      }
+    },
+    "complete_days": 541,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "64a47a52763969907ccc6dee4e8b8c0f4ac1a4816683d29a21852b3b6365b471",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "saopaulo": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 404,
+      "wins": 404,
+      "rate": 1.0,
+      "lower95": 0.9933476602479583
+    },
+    "validation": {
+      "n": 91,
+      "wins": 91,
+      "rate": 1.0,
+      "lower95": 0.9711271782397718
+    },
+    "weather_lower95": 0.9711271782397718,
+    "baseline": {
+      "17": {
+        "n": 501,
+        "wins": 499,
+        "rate": 0.9960079840319361,
+        "lower95": 0.9880095022335524
+      },
+      "18": {
+        "n": 501,
+        "wins": 501,
+        "rate": 1.0,
+        "lower95": 0.9946287201138535
+      },
+      "19": {
+        "n": 501,
+        "wins": 501,
+        "rate": 1.0,
+        "lower95": 0.9946287201138535
+      },
+      "20": {
+        "n": 501,
+        "wins": 501,
+        "rate": 1.0,
+        "lower95": 0.9946287201138535
+      },
+      "21": {
+        "n": 501,
+        "wins": 501,
+        "rate": 1.0,
+        "lower95": 0.9946287201138535
+      }
+    },
+    "complete_days": 501,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "9f9f43c9a7146dea1197e8c0b8fa8337c0133afa0dbfbdbf46f8be9d4a904386",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "ankara": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 440,
+      "wins": 440,
+      "rate": 1.0,
+      "lower95": 0.993888616273051
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "weather_lower95": 0.9714320476350278,
+    "baseline": {
+      "17": {
+        "n": 548,
+        "wins": 527,
+        "rate": 0.9616788321167883,
+        "lower95": 0.9457652701671363
+      },
+      "18": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      },
+      "19": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      },
+      "20": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      },
+      "21": {
+        "n": 548,
+        "wins": 547,
+        "rate": 0.9981751824817519,
+        "lower95": 0.9918626354001312
+      }
+    },
+    "complete_days": 548,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "8f69935ab9ad49a2035449ced2b3030b0bcd4e7a00aa1db12904fc42583c1a50",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "munich": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 414,
+      "wins": 414,
+      "rate": 1.0,
+      "lower95": 0.9935073015067928
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "weather_lower95": 0.9714320476350278,
+    "baseline": {
+      "17": {
+        "n": 545,
+        "wins": 504,
+        "rate": 0.9247706422018349,
+        "lower95": 0.9040159346306061
+      },
+      "18": {
+        "n": 545,
+        "wins": 531,
+        "rate": 0.9743119266055046,
+        "lower95": 0.9606056859279016
+      },
+      "19": {
+        "n": 545,
+        "wins": 537,
+        "rate": 0.9853211009174312,
+        "lower95": 0.9741377371968322
+      },
+      "20": {
+        "n": 545,
+        "wins": 541,
+        "rate": 0.9926605504587156,
+        "lower95": 0.9837529904638889
+      },
+      "21": {
+        "n": 545,
+        "wins": 541,
+        "rate": 0.9926605504587156,
+        "lower95": 0.9837529904638889
+      }
+    },
+    "complete_days": 545,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "0b6324ff65d7850e2f60b09b493d453676453eeb71b749f59eb9b3738c534375",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "moscow": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 337,
+      "wins": 337,
+      "rate": 1.0,
+      "lower95": 0.9920356217134827
+    },
+    "validation": {
+      "n": 92,
+      "wins": 92,
+      "rate": 1.0,
+      "lower95": 0.9714320476350278
+    },
+    "weather_lower95": 0.9714320476350278,
+    "baseline": {
+      "17": {
+        "n": 548,
+        "wins": 499,
+        "rate": 0.9105839416058394,
+        "lower95": 0.8884650901591281
+      },
+      "18": {
+        "n": 548,
+        "wins": 518,
+        "rate": 0.9452554744525548,
+        "lower95": 0.9269740813340099
+      },
+      "19": {
+        "n": 548,
+        "wins": 526,
+        "rate": 0.9598540145985401,
+        "lower95": 0.9436514329950096
+      },
+      "20": {
+        "n": 548,
+        "wins": 530,
+        "rate": 0.9671532846715328,
+        "lower95": 0.9521563189923303
+      },
+      "21": {
+        "n": 548,
+        "wins": 534,
+        "rate": 0.9744525547445255,
+        "lower95": 0.9608195116753177
+      }
+    },
+    "complete_days": 548,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "382ed23d695898e528e7a3081c9f3acffd6a43674ec4d791e4bc1f2b8b6a6829",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "lucknow": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 380,
+      "wins": 380,
+      "rate": 1.0,
+      "lower95": 0.9929304827160939
+    },
+    "validation": {
+      "n": 87,
+      "wins": 87,
+      "rate": 1.0,
+      "lower95": 0.9698397295203957
+    },
+    "weather_lower95": 0.9698397295203957,
+    "baseline": {
+      "17": {
+        "n": 474,
+        "wins": 470,
+        "rate": 0.9915611814345991,
+        "lower95": 0.9813366988968147
+      },
+      "18": {
+        "n": 474,
+        "wins": 474,
+        "rate": 1.0,
+        "lower95": 0.994324497603926
+      },
+      "19": {
+        "n": 474,
+        "wins": 474,
+        "rate": 1.0,
+        "lower95": 0.994324497603926
+      },
+      "20": {
+        "n": 474,
+        "wins": 474,
+        "rate": 1.0,
+        "lower95": 0.994324497603926
+      },
+      "21": {
+        "n": 474,
+        "wins": 474,
+        "rate": 1.0,
+        "lower95": 0.994324497603926
+      }
+    },
+    "complete_days": 474,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "0913fa6bb47516a8fd3ea908d71510d27efbcacb3168d822bb67630c7662b272",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "jinan": {
+    "status": "research_only",
+    "rule": {
+      "start_hour": 21,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 41,
+      "wins": 41,
+      "rate": 1.0,
+      "lower95": 0.9380961031422229
+    },
+    "validation": {
+      "n": 40,
+      "wins": 40,
+      "rate": 1.0,
+      "lower95": 0.9366465513545419
+    },
+    "weather_lower95": 0.9366465513545419,
+    "baseline": {
+      "17": {
+        "n": 81,
+        "wins": 80,
+        "rate": 0.9876543209876543,
+        "lower95": 0.9465436267891877
+      },
+      "18": {
+        "n": 81,
+        "wins": 80,
+        "rate": 0.9876543209876543,
+        "lower95": 0.9465436267891877
+      },
+      "19": {
+        "n": 81,
+        "wins": 81,
+        "rate": 1.0,
+        "lower95": 0.9676778461443338
+      },
+      "20": {
+        "n": 81,
+        "wins": 81,
+        "rate": 1.0,
+        "lower95": 0.9676778461443338
+      },
+      "21": {
+        "n": 81,
+        "wins": 81,
+        "rate": 1.0,
+        "lower95": 0.9676778461443338
+      }
+    },
+    "complete_days": 81,
+    "first_day": "2025-03-07",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "af59796ab1fc5b6c80482eb3d189635ff3bcee4a0e342f7f72b9b0da035dfe15",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "zhengzhou": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 406,
+      "wins": 406,
+      "rate": 1.0,
+      "lower95": 0.993380213463145
+    },
+    "validation": {
+      "n": 89,
+      "wins": 89,
+      "rate": 1.0,
+      "lower95": 0.9704974928211433
+    },
+    "weather_lower95": 0.9704974928211433,
+    "baseline": {
+      "17": {
+        "n": 523,
+        "wins": 510,
+        "rate": 0.9751434034416826,
+        "lower95": 0.9612646044650911
+      },
+      "18": {
+        "n": 523,
+        "wins": 521,
+        "rate": 0.9961759082217974,
+        "lower95": 0.9885109652115267
+      },
+      "19": {
+        "n": 523,
+        "wins": 523,
+        "rate": 1.0,
+        "lower95": 0.9948535002383295
+      },
+      "20": {
+        "n": 523,
+        "wins": 523,
+        "rate": 1.0,
+        "lower95": 0.9948535002383295
+      },
+      "21": {
+        "n": 523,
+        "wins": 523,
+        "rate": 1.0,
+        "lower95": 0.9948535002383295
+      }
+    },
+    "complete_days": 523,
+    "first_day": "2025-03-01",
+    "last_day": "2026-09-01",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "75811387cdf6f271113fdecf2380e0b56c813c06566962144cbf8e56c66ce207",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "atlanta": {
+    "status": "weather_paper_candidate",
+    "rule": {
+      "start_hour": 17,
+      "cooling_c": 2.0,
+      "flat_hours": 2,
+      "publication_delay_minutes": 10
+    },
+    "train": {
+      "n": 396,
+      "wins": 396,
+      "rate": 1.0,
+      "lower95": 0.9932141814968094
+    },
+    "validation": {
+      "n": 91,
+      "wins": 91,
+      "rate": 1.0,
+      "lower95": 0.9711271782397718
+    },
+    "weather_lower95": 0.9711271782397718,
+    "baseline": {
+      "17": {
+        "n": 511,
+        "wins": 475,
+        "rate": 0.9295499021526419,
+        "lower95": 0.9085787833452026
+      },
+      "18": {
+        "n": 511,
+        "wins": 507,
+        "rate": 0.9921722113502935,
+        "lower95": 0.9826791203809461
+      },
+      "19": {
+        "n": 511,
+        "wins": 508,
+        "rate": 0.9941291585127201,
+        "lower95": 0.9854020757104196
+      },
+      "20": {
+        "n": 511,
+        "wins": 509,
+        "rate": 0.9960861056751468,
+        "lower95": 0.9882427609882785
+      },
+      "21": {
+        "n": 511,
+        "wins": 509,
+        "rate": 0.9960861056751468,
+        "lower95": 0.9882427609882785
+      }
+    },
+    "complete_days": 511,
+    "first_day": "2025-03-01",
+    "last_day": "2026-08-31",
+    "split": "2026-06-01",
+    "before": "2026-09-05",
+    "source_sha256": "af81bfd6685b0530d50e6e920eadc40027713e8bfe5ffee308cd0a38d3f3b313",
+    "source_note": "WU/IEM hourly aggregates; provisional proxy, not archived NOAA settlement feed",
+    "limitation": "not calibrated conditional on cheap asks; no publication/revision history"
+  },
+  "hongkong": {
+    "status": "no_compatible_history"
+  },
+  "istanbul": {
+    "status": "no_compatible_history"
+  }
+}

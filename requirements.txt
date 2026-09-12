@@ -1,0 +1,4 @@
+matplotlib>=3.7
+pytest>=8
+requests>=2.31,<3
+tzdata>=2024.1

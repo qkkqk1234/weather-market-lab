@@ -1,0 +1,17 @@
+{
+  "mode": "paper_only",
+  "entry_min": 0.90,
+  "entry_max": 0.95,
+  "target_exit": 0.998,
+  "max_spread": 0.04,
+  "min_proxy_edge": 0.01,
+  "starting_equity": 1000,
+  "stake_fraction": 0.01,
+  "stake_cap": 10,
+  "max_open_fraction": 0.10,
+  "daily_fraction": 0.20,
+  "confirmation_min_seconds": 10,
+  "confirmation_max_seconds": 300,
+  "max_quote_age_seconds": 5,
+  "scan_interval_seconds": 120
+}
